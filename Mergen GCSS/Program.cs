@@ -25,7 +25,7 @@ namespace Mergen_GCSS
                 Application.DoEvents();
 
                 // Wait for the SplashScreen to close
-                System.Threading.Thread.Sleep(5000);
+                System.Threading.Thread.Sleep(3000);
 
                 // Show the MainForm
                 Application.Run(new mainForm());
