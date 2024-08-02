@@ -20,7 +20,7 @@ namespace Mergen_GCSS
         { "salih", "123" },
         { "ikram", "password2" },
          { "yeo", "password3" },
-         { "mek", "password4" },
+         { "mek", "generalmahmut" },
          { "cio", "cio" }
         };
         public loginForm()
