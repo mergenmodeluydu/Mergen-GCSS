@@ -17,11 +17,11 @@ namespace Mergen_GCSS
         private Dictionary<string, string> users = new Dictionary<string, string>()
     {
         { "kgnybr", "elektronikbirimbaskani123" },
-        { "salih", "password1" },
+        { "salih", "123" },
         { "ikram", "password2" },
          { "yeo", "password3" },
          { "mek", "password4" },
-         { "cio", "password5" }
+         { "cio", "cio" }
         };
         public loginForm()
         {
