@@ -32,35 +32,7 @@ namespace Mergen_GCSS
             gMapControl1.Zoom = 10;
 
 
-            chart1.Series[0].ChartType = SeriesChartType.Line;
-            // chart1.ChartAreas["ChartArea1"].AxisX.LabelStyle.Format = "HH:mm:ss";
-
-            // Veri saklama için bir sınırlayıcı tanımla
-            int maxDataPoints = 8;
-
-            // X eksenindeki zamanı güncelleme
-            Timer timer1 = new Timer();
-            timer1.Interval = 1000; // Her saniyede bir güncelle
-            timer1.Tick += (sender, e) =>
-            {
-                Random rnd = new Random();
-                int random = rnd.Next(1, 6);
-
-                DateTime now = DateTime.Now;
-                string zaman = now.ToString("HH:mm:ss");
-
-                // Eğer mevcut veri sayısı maksimuma ulaştıysa ilk veriyi kaldır
-                if (chart1.Series[0].Points.Count >= maxDataPoints)
-                {
-                    chart1.Series[0].Points.RemoveAt(0);
-                }
-
-                chart1.Series[0].Points.AddXY(zaman, random);
-
-                chart1.ChartAreas[0].AxisX.Interval = 1;
-                chart1.ChartAreas[0].AxisY.Interval = 1;
-            };
-            timer1.Start();
+            
         }
 
         private void gMapControl1_Load(object sender, EventArgs e)
