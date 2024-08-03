@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Mergen_GCSS
 {
@@ -29,6 +30,9 @@ namespace Mergen_GCSS
             gMapControl1.MinZoom = 5;
             gMapControl1.MaxZoom = 100;
             gMapControl1.Zoom = 10;
+
+
+            
         }
 
         private void gMapControl1_Load(object sender, EventArgs e)
@@ -49,6 +53,22 @@ namespace Mergen_GCSS
         private void label6_MouseLeave(object sender, EventArgs e)
         {
             label6.ForeColor = Color.Red;
+
+        }
+
+        private void mainForm_Load(object sender, EventArgs e)
+        {
+            pictureBox1.BackColor = Color.Chartreuse;
+            pictureBox2.BackColor = Color.Chartreuse;
+            pictureBox3.BackColor = Color.Chartreuse;
+            pictureBox4.BackColor = Color.Chartreuse;
+            pictureBox5.BackColor = Color.Chartreuse;
+
+            label7.ForeColor = Color.Chartreuse;
+            label8.ForeColor = Color.Chartreuse;
+            label9.ForeColor = Color.Chartreuse;
+            label10.ForeColor = Color.Chartreuse;
+            label11.ForeColor = Color.Chartreuse;
 
         }
     }
