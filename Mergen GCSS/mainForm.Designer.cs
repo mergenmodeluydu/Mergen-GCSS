@@ -473,9 +473,9 @@
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label18.Location = new System.Drawing.Point(150, 252);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(93, 20);
+            this.label18.Size = new System.Drawing.Size(84, 20);
             this.label18.TabIndex = 2;
-            this.label18.Text = "BASINÇ 1";
+            this.label18.Text = "İNİŞ HIZI";
             // 
             // label14
             // 
@@ -483,9 +483,9 @@
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label14.Location = new System.Drawing.Point(150, 13);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(93, 20);
+            this.label14.Size = new System.Drawing.Size(87, 20);
             this.label14.TabIndex = 2;
-            this.label14.Text = "BASINÇ 1";
+            this.label14.Text = "BASINÇ1";
             // 
             // label22
             // 
@@ -493,9 +493,9 @@
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label22.Location = new System.Drawing.Point(1688, 252);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(93, 20);
+            this.label22.Size = new System.Drawing.Size(58, 20);
             this.label22.TabIndex = 1;
-            this.label22.Text = "BASINÇ 2";
+            this.label22.Text = "ARAS";
             // 
             // label17
             // 
@@ -503,9 +503,9 @@
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label17.Location = new System.Drawing.Point(1688, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(93, 20);
+            this.label17.Size = new System.Drawing.Size(125, 20);
             this.label17.TabIndex = 1;
-            this.label17.Text = "BASINÇ 2";
+            this.label17.Text = "İRTİFA FARKI";
             // 
             // label21
             // 
@@ -513,9 +513,9 @@
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label21.Location = new System.Drawing.Point(1280, 252);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(93, 20);
+            this.label21.Size = new System.Drawing.Size(90, 20);
             this.label21.TabIndex = 1;
-            this.label21.Text = "BASINÇ 2";
+            this.label21.Text = "IoT DATA";
             // 
             // label16
             // 
@@ -523,9 +523,9 @@
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label16.Location = new System.Drawing.Point(1280, 13);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(93, 20);
+            this.label16.Size = new System.Drawing.Size(119, 20);
             this.label16.TabIndex = 1;
-            this.label16.Text = "BASINÇ 2";
+            this.label16.Text = "YÜKSEKLİK2";
             // 
             // label20
             // 
@@ -533,9 +533,9 @@
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label20.Location = new System.Drawing.Point(922, 252);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(93, 20);
+            this.label20.Size = new System.Drawing.Size(123, 20);
             this.label20.TabIndex = 1;
-            this.label20.Text = "BASINÇ 2";
+            this.label20.Text = "PİL GERİLİMİ";
             // 
             // label15
             // 
@@ -543,9 +543,9 @@
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label15.Location = new System.Drawing.Point(922, 13);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(93, 20);
+            this.label15.Size = new System.Drawing.Size(119, 20);
             this.label15.TabIndex = 1;
-            this.label15.Text = "BASINÇ 2";
+            this.label15.Text = "YÜKSEKLİK1";
             // 
             // label19
             // 
@@ -553,9 +553,9 @@
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label19.Location = new System.Drawing.Point(542, 252);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(93, 20);
+            this.label19.Size = new System.Drawing.Size(91, 20);
             this.label19.TabIndex = 1;
-            this.label19.Text = "BASINÇ 2";
+            this.label19.Text = "SICAKLIK";
             // 
             // label13
             // 
@@ -563,18 +563,18 @@
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label13.Location = new System.Drawing.Point(542, 13);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(93, 20);
+            this.label13.Size = new System.Drawing.Size(87, 20);
             this.label13.TabIndex = 1;
-            this.label13.Text = "BASINÇ 2";
+            this.label13.Text = "BASINÇ2";
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.11765F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.27311F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.7458F));
             this.tableLayoutPanel1.Controls.Add(this.chart9, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.chart8, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.chart7, 1, 1);
@@ -602,14 +602,14 @@
             chartArea1.Name = "ChartArea1";
             this.chart9.ChartAreas.Add(chartArea1);
             this.chart9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chart9.Location = new System.Drawing.Point(1143, 248);
+            this.chart9.Location = new System.Drawing.Point(1126, 248);
             this.chart9.Name = "chart9";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             series1.Name = "Series1";
             this.chart9.Series.Add(series1);
-            this.chart9.Size = new System.Drawing.Size(374, 240);
+            this.chart9.Size = new System.Drawing.Size(379, 240);
             this.chart9.TabIndex = 8;
             this.chart9.Text = "chart9";
             // 
@@ -626,7 +626,7 @@
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series2.Name = "Series1";
             this.chart8.Series.Add(series2);
-            this.chart8.Size = new System.Drawing.Size(374, 240);
+            this.chart8.Size = new System.Drawing.Size(357, 240);
             this.chart8.TabIndex = 7;
             this.chart8.Text = "chart8";
             // 
@@ -673,14 +673,14 @@
             chartArea5.Name = "ChartArea1";
             this.chart5.ChartAreas.Add(chartArea5);
             this.chart5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chart5.Location = new System.Drawing.Point(1523, 3);
+            this.chart5.Location = new System.Drawing.Point(1511, 3);
             this.chart5.Name = "chart5";
             series5.ChartArea = "ChartArea1";
             series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             series5.Name = "Series1";
             this.chart5.Series.Add(series5);
-            this.chart5.Size = new System.Drawing.Size(378, 239);
+            this.chart5.Size = new System.Drawing.Size(390, 239);
             this.chart5.TabIndex = 4;
             this.chart5.Text = "chart5";
             // 
@@ -691,14 +691,14 @@
             chartArea6.Name = "ChartArea1";
             this.chart4.ChartAreas.Add(chartArea6);
             this.chart4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chart4.Location = new System.Drawing.Point(1143, 3);
+            this.chart4.Location = new System.Drawing.Point(1126, 3);
             this.chart4.Name = "chart4";
             series6.ChartArea = "ChartArea1";
             series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             series6.Name = "Series1";
             this.chart4.Series.Add(series6);
-            this.chart4.Size = new System.Drawing.Size(374, 239);
+            this.chart4.Size = new System.Drawing.Size(379, 239);
             this.chart4.TabIndex = 3;
             this.chart4.Text = "chart4";
             // 
@@ -716,7 +716,7 @@
             series7.Color = System.Drawing.Color.Yellow;
             series7.Name = "Series1";
             this.chart3.Series.Add(series7);
-            this.chart3.Size = new System.Drawing.Size(374, 239);
+            this.chart3.Size = new System.Drawing.Size(357, 239);
             this.chart3.TabIndex = 2;
             this.chart3.Text = "chart3";
             // 
@@ -765,8 +765,8 @@
             this.tableLayoutPanel2.ColumnCount = 5;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.pictureBox2, 1, 1);
@@ -779,12 +779,12 @@
             this.tableLayoutPanel2.Controls.Add(this.label10, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.label11, 4, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(1523, 347);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(1511, 347);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(378, 141);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(390, 141);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
             // pictureBox1
@@ -792,54 +792,56 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(3, 73);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(69, 65);
+            this.pictureBox1.Size = new System.Drawing.Size(72, 65);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(78, 73);
+            this.pictureBox2.Location = new System.Drawing.Point(81, 73);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(69, 65);
+            this.pictureBox2.Size = new System.Drawing.Size(72, 65);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox3.Location = new System.Drawing.Point(153, 73);
+            this.pictureBox3.Location = new System.Drawing.Point(159, 73);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(69, 65);
+            this.pictureBox3.Size = new System.Drawing.Size(75, 65);
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox4.Location = new System.Drawing.Point(228, 73);
+            this.pictureBox4.Location = new System.Drawing.Point(240, 73);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(69, 65);
+            this.pictureBox4.Size = new System.Drawing.Size(68, 65);
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox5
             // 
             this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox5.Location = new System.Drawing.Point(303, 73);
+            this.pictureBox5.Location = new System.Drawing.Point(314, 73);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(72, 65);
+            this.pictureBox5.Size = new System.Drawing.Size(73, 65);
             this.pictureBox5.TabIndex = 4;
             this.pictureBox5.TabStop = false;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.White;
+            this.label7.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.ForeColor = System.Drawing.Color.Chartreuse;
             this.label7.Location = new System.Drawing.Point(3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 70);
+            this.label7.Size = new System.Drawing.Size(72, 70);
             this.label7.TabIndex = 5;
             this.label7.Text = "MODEL UYDU İNİŞ HIZI";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -847,11 +849,13 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.White;
+            this.label8.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Location = new System.Drawing.Point(78, 0);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label8.ForeColor = System.Drawing.Color.DarkRed;
+            this.label8.Location = new System.Drawing.Point(81, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(69, 70);
+            this.label8.Size = new System.Drawing.Size(72, 70);
             this.label8.TabIndex = 6;
             this.label8.Text = "GÖREV YÜKÜ İNİŞ HIZI";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -859,11 +863,12 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Location = new System.Drawing.Point(153, 0);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label9.Location = new System.Drawing.Point(159, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(69, 70);
+            this.label9.Size = new System.Drawing.Size(75, 70);
             this.label9.TabIndex = 7;
             this.label9.Text = "TAŞIYICI BASINÇ VERİSİ";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -871,11 +876,13 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.White;
+            this.label10.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Location = new System.Drawing.Point(228, 0);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(240, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(69, 70);
+            this.label10.Size = new System.Drawing.Size(68, 70);
             this.label10.TabIndex = 8;
             this.label10.Text = "GÖREV YÜKÜ KONUM VERİSİ";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -883,11 +890,13 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.White;
+            this.label11.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Location = new System.Drawing.Point(303, 0);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(23)))), ((int)(((byte)(18)))));
+            this.label11.Location = new System.Drawing.Point(314, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 70);
+            this.label11.Size = new System.Drawing.Size(73, 70);
             this.label11.TabIndex = 9;
             this.label11.Text = "AYRILMA ";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

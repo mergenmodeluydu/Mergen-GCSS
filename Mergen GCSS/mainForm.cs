@@ -86,17 +86,17 @@ namespace Mergen_GCSS
 
         private void mainForm_Load(object sender, EventArgs e)
         {
-            pictureBox1.BackColor = Color.Green;
-            pictureBox2.BackColor = Color.Green;
-            pictureBox3.BackColor = Color.Green;
-            pictureBox4.BackColor = Color.Green;
-            pictureBox5.BackColor = Color.Green;
+            pictureBox1.BackColor = Color.Chartreuse;
+            pictureBox2.BackColor = Color.Chartreuse;
+            pictureBox3.BackColor = Color.Chartreuse;
+            pictureBox4.BackColor = Color.Chartreuse;
+            pictureBox5.BackColor = Color.Chartreuse;
 
-            label7.ForeColor = Color.Green;
-            label8.ForeColor = Color.Green;
-            label9.ForeColor = Color.Green;
-            label10.ForeColor = Color.Green;
-            label11.ForeColor = Color.Green;
+            label7.ForeColor = Color.Chartreuse;
+            label8.ForeColor = Color.Chartreuse;
+            label9.ForeColor = Color.Chartreuse;
+            label10.ForeColor = Color.Chartreuse;
+            label11.ForeColor = Color.Chartreuse;
 
         }
     }
