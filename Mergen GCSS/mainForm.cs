@@ -17,7 +17,7 @@ namespace Mergen_GCSS
 {
     public partial class mainForm : Form
     {
-        
+        private TcpServer server;
         public  mainForm()
         {
             
@@ -91,8 +91,13 @@ namespace Mergen_GCSS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            wifi.basla();
-            timer1.Enabled = true;  
+            server = new TcpServer("192.168.1.107", 65432, dataGridView1);
+            server.Start();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            server.Stop();
         }
     }
 }
