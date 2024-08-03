@@ -6,16 +6,24 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Net.Sockets;
+
 
 namespace Mergen_GCSS
 {
     public partial class mainForm : Form
     {
-        public mainForm()
+        
+        public  mainForm()
         {
+            
+            
+
+
             InitializeComponent();
             gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMaps.Instance.Mode = AccessMode.ServerOnly;
@@ -32,7 +40,16 @@ namespace Mergen_GCSS
             gMapControl1.Zoom = 10;
 
 
+            timer1.Tick += UpdateTimer_Tick;
+           
             
+        }
+        ReceivedData a = new ReceivedData();
+        public void UpdateTimer_Tick(object sender, EventArgs e)
+        {
+           
+            // Timer tetiklendiğinde veri güncelleme işlemi yapılacak
+            dataGridView1.Rows.Add(a.IntValues[0], a.IntValues[1], a.IntValues[2]);
         }
 
         private void gMapControl1_Load(object sender, EventArgs e)
@@ -70,6 +87,12 @@ namespace Mergen_GCSS
             label10.ForeColor = Color.Chartreuse;
             label11.ForeColor = Color.Chartreuse;
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            wifi.basla();
+            timer1.Enabled = true;  
         }
     }
 }
