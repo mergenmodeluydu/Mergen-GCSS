@@ -4,17 +4,22 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Linq;
+
 
 public class TcpServer
 {
     private TcpListener listener;
     private Thread listenerThread;
     private DataGridView dataGridView;
+    private Form form;
 
-    public TcpServer(string ipAddress, int port, DataGridView dgv)
+    public TcpServer(string ipAddress, int port, DataGridView dgv, Form form)
     {
         listener = new TcpListener(IPAddress.Parse(ipAddress), port);
         dataGridView = dgv;
+        this.form = form;
     }
 
     public void Start()
@@ -93,6 +98,21 @@ public class TcpServer
            floatValues[5], floatValues[6], floatValues[7], floatValues[8], floatValues[9],
            floatValues[10], floatValues[11], floatValues[12], floatValues[13],
            additionalString, receivedFloat, receivedInt);
+            for (int i = 0; i <= 7; i++)
+            {
+                Chart chart = form.Controls.Find($"chart{i + 1}", true).FirstOrDefault() as Chart;
+                if (chart != null)
+                {
+                    chart.Series[0].Points.AddY(floatValues[i]);
+                }
+            }
+
+            // Chart9'a receivedFloat değerini ekleyin
+            Chart chart9 = form.Controls.Find("chart9", true).FirstOrDefault() as Chart;
+            if (chart9 != null)
+            {
+                chart9.Series[0].Points.AddY(receivedFloat);
+            }
         });
     }
 

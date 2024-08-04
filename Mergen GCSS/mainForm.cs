@@ -25,6 +25,8 @@ namespace Mergen_GCSS
 
 
             InitializeComponent();
+            
+
             gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMaps.Instance.Mode = AccessMode.ServerOnly;
             gMapControl1.SetPositionByKeywords("Istanbul, Turkey");
@@ -44,12 +46,12 @@ namespace Mergen_GCSS
            
             
         }
-        ReceivedData a = new ReceivedData();
+        
         public void UpdateTimer_Tick(object sender, EventArgs e)
         {
            
-            // Timer tetiklendiğinde veri güncelleme işlemi yapılacak
-            dataGridView1.Rows.Add(a.IntValues[0], a.IntValues[1], a.IntValues[2]);
+            
+           
         }
 
         private void gMapControl1_Load(object sender, EventArgs e)
@@ -91,7 +93,8 @@ namespace Mergen_GCSS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            server = new TcpServer("192.168.1.107", 65432, dataGridView1);
+            
+            server = new TcpServer("192.168.1.107", 65432, dataGridView1, this);
             server.Start();
         }
 
