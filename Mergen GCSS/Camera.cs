@@ -24,7 +24,7 @@ namespace Mergen_GCSS
         {
             this.pictureBox = pictureBox;
             baseDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            VideoStream = new MJPEGStream("http://192.168.1.104:8000/stream.mjpg");
+            VideoStream = new MJPEGStream("http://192.168.137.230:8000/stream.mjpg");
             VideoStream.NewFrame += VideoStream_NewFrame;
 
             string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
@@ -49,7 +49,7 @@ namespace Mergen_GCSS
             try
             {
                 // H.264 codec'ini kullanarak video dosyasını açın
-                writer.Open(outputPath, 1280, 720, (int)VideoCodec.H264);
+                writer.Open(outputPath, 1280, 720,30,VideoCodec.MPEG4, 8000000);
             }
             catch (Exception ex)
             {
