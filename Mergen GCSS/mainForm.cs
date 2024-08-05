@@ -18,6 +18,8 @@ namespace Mergen_GCSS
     public partial class mainForm : Form
     {
         private TcpServer server;
+        private DataGridViewHandler dataGridViewHandler;
+        private ChartHandler chartHandler;
         public  mainForm()
         {
             
@@ -25,8 +27,9 @@ namespace Mergen_GCSS
 
 
             InitializeComponent();
-            
 
+            dataGridViewHandler = new DataGridViewHandler(dataGridView1);
+            chartHandler = new ChartHandler(this);
             gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMaps.Instance.Mode = AccessMode.ServerOnly;
             gMapControl1.SetPositionByKeywords("Istanbul, Turkey");
@@ -93,8 +96,8 @@ namespace Mergen_GCSS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            server = new TcpServer("192.168.1.107", 65432, dataGridView1, this);
+
+            server = new TcpServer("192.168.137.228", 65432, dataGridViewHandler, chartHandler);
             server.Start();
         }
 

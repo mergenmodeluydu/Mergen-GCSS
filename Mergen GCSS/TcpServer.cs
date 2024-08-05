@@ -14,12 +14,19 @@ public class TcpServer
     private Thread listenerThread;
     private DataGridView dataGridView;
     private Form form;
+    private DataGridViewHandler dataGridViewHandler;
+    private ChartHandler chartHandler;
 
-    public TcpServer(string ipAddress, int port, DataGridView dgv, Form form)
+    public TcpServer(string ipAddress, int port, DataGridViewHandler dataGridViewHandler, ChartHandler chartHandler)
     {
         listener = new TcpListener(IPAddress.Parse(ipAddress), port);
-        dataGridView = dgv;
-        this.form = form;
+        this.dataGridViewHandler = dataGridViewHandler;
+        this.chartHandler = chartHandler;
+    }
+    private void AddDataToGridAndCharts(int[] intValues, string receivedString, float[] floatValues, string additionalString, float receivedFloat, int receivedInt)
+    {
+        dataGridViewHandler.AddData(intValues, receivedString, floatValues, additionalString, receivedFloat, receivedInt);
+        chartHandler.UpdateCharts(floatValues, receivedFloat);
     }
 
     public void Start()
@@ -78,8 +85,9 @@ public class TcpServer
                     buffer = new byte[4];
                     clientSocket.Receive(buffer, 0, 4, SocketFlags.None);
                     int receivedInt = BitConverter.ToInt32(buffer, 0);
+                    AddDataToGridAndCharts(intValues, receivedString, floatValues, additionalString, receivedFloat, receivedInt);
 
-                    AddDataToGrid(intValues, receivedString, floatValues, additionalString, receivedFloat, receivedInt);
+                    // AddDataToGrid(intValues, receivedString, floatValues, additionalString, receivedFloat, receivedInt);
                 }
             }
             catch (Exception e)
@@ -89,7 +97,7 @@ public class TcpServer
         }
     }
 
-    private void AddDataToGrid(int[] intValues, string receivedString, float[] floatValues, string additionalString, float receivedFloat, int receivedInt)
+    /*private void AddDataToGrid(int[] intValues, string receivedString, float[] floatValues, string additionalString, float receivedFloat, int receivedInt)
     {
         dataGridView.Invoke((MethodInvoker)delegate
         {
@@ -114,7 +122,7 @@ public class TcpServer
                 chart9.Series[0].Points.AddY(receivedFloat);
             }
         });
-    }
+    }*/
 
     public void Stop()
     {

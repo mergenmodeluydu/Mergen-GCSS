@@ -84,6 +84,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChartHandler.cs" />
+    <Compile Include="DataGridViewHandler.cs" />
     <Compile Include="loginForm.cs">
       <SubType>Form</SubType>
     </Compile>
