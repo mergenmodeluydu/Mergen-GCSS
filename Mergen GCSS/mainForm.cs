@@ -16,9 +16,14 @@ namespace Mergen_GCSS
     public partial class mainForm : Form
     {
         private Camera camera;
+        private TcpServer server;
+        private DataGridViewHandler dataGridViewHandler;
+        private ChartHandler chartHandler;
         public mainForm()
         {
             InitializeComponent();
+            dataGridViewHandler = new DataGridViewHandler(dataGridView1);
+            chartHandler = new ChartHandler(this);
             camera = new Camera(pictureBox7);
             gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMaps.Instance.Mode = AccessMode.ServerOnly;
@@ -83,6 +88,17 @@ namespace Mergen_GCSS
         private  void button4_Click(object sender, EventArgs e)
         {
             camera.StopRecording();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            server = new TcpServer("192.168.137.1", 65432, dataGridViewHandler, chartHandler);
+            server.Start();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            server.Stop();
         }
     }
 }

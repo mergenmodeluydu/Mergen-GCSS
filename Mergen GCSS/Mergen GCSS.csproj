@@ -106,6 +106,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="ChartHandler.cs" />
+    <Compile Include="DataGridViewHandler.cs" />
     <Compile Include="loginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +128,7 @@
     <Compile Include="splash.Designer.cs">
       <DependentUpon>splash.cs</DependentUpon>
     </Compile>
+    <Compile Include="TcpServer.cs" />
     <EmbeddedResource Include="loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
     </EmbeddedResource>

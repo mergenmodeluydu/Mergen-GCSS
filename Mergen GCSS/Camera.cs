@@ -24,7 +24,7 @@ namespace Mergen_GCSS
         {
             this.pictureBox = pictureBox;
             baseDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            VideoStream = new MJPEGStream("http://192.168.137.230:8000/stream.mjpg");
+            VideoStream = new MJPEGStream("http://192.168.137.146:8000/stream.mjpg");
             VideoStream.NewFrame += VideoStream_NewFrame;
 
             string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
