@@ -1,4 +1,5 @@
-﻿using GMap.NET;
+﻿using Accord.Video.FFMPEG;
+using GMap.NET;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +15,11 @@ namespace Mergen_GCSS
 {
     public partial class mainForm : Form
     {
+        private Camera camera;
         public mainForm()
         {
             InitializeComponent();
+            camera = new Camera(pictureBox7);
             gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMaps.Instance.Mode = AccessMode.ServerOnly;
             gMapControl1.SetPositionByKeywords("Istanbul, Turkey");
@@ -70,6 +73,16 @@ namespace Mergen_GCSS
             label10.ForeColor = Color.Chartreuse;
             label11.ForeColor = Color.Chartreuse;
 
+        }
+
+        private  void button3_Click(object sender, EventArgs e)
+        {
+            camera.StartRecording();
+        }
+
+        private  void button4_Click(object sender, EventArgs e)
+        {
+            camera.StopRecording();
         }
     }
 }
