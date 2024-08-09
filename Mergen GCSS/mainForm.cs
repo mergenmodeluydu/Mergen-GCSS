@@ -50,7 +50,19 @@ namespace Mergen_GCSS
 
         private void label6_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult firstResponse = MessageBox.Show("Uygulamadan çıkmak istediğinize emin misiniz?", "Çıkış Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (firstResponse == DialogResult.Yes)
+            {
+                // İkinci onay kutusu
+                DialogResult secondResponse = MessageBox.Show("Emin misiniz? Cidden çıkmak istiyor musunuz? Videoyu vs kontrol ettiniz mi?", "Çıkış Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (secondResponse == DialogResult.Yes)
+                {
+                    // Uygulamadan çıkış
+                    Application.Exit();
+                }
+            }
         }
 
         private void label6_MouseEnter(object sender, EventArgs e)
