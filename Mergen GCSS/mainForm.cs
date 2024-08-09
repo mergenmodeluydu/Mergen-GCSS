@@ -112,5 +112,15 @@ namespace Mergen_GCSS
         {
             server.Stop();
         }
+
+        private void mainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                // Alt+F4 veya kullanıcı tarafından kapatma işlemi engellenir
+                e.Cancel = true;
+                MessageBox.Show("Alt+F4 ile uygulamayı kapatamazsınız!", "Kapatma Engellendi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
