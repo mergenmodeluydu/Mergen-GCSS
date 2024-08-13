@@ -30,23 +30,20 @@ namespace Mergen_GCSS
             gMapControl1.SetPositionByKeywords("Istanbul, Turkey");
 
             // Koordinatlarla manuel olarak pozisyon ayarlama
-            double latitude = 38.707901; // Enlem (Latitude)
+           double latitude = 38.707901; // Enlem (Latitude)
             double longitude = 35.519833; // Boylam (Longitude)
 
             // Haritayı bu koordinatlara göre merkezleme
             gMapControl1.Position = new PointLatLng(latitude, longitude);
             gMapControl1.MinZoom = 5;
             gMapControl1.MaxZoom = 100;
-            gMapControl1.Zoom = 10;
+            gMapControl1.Zoom = 10;   
 
 
             
         }
 
-        private void gMapControl1_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void label6_Click(object sender, EventArgs e)
         {
