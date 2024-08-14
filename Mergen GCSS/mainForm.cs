@@ -101,7 +101,7 @@ namespace Mergen_GCSS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            server = new TcpServer("192.168.137.1", 65432, dataGridViewHandler, chartHandler);
+            server = new TcpServer("192.168.218.210", 12345, dataGridViewHandler, chartHandler);
             server.Start();
         }
 
