@@ -22,6 +22,7 @@ namespace Mergen_GCSS
         public mainForm()
         {
             InitializeComponent();
+            button2.Enabled = false;
             dataGridViewHandler = new DataGridViewHandler(dataGridView1);
             chartHandler = new ChartHandler(this);
             camera = new Camera(pictureBox7);
@@ -103,13 +104,22 @@ namespace Mergen_GCSS
         {
             server = new TcpServer("192.168.218.26", 12345, dataGridViewHandler, chartHandler);
             server.Start();
+            button1.Enabled = false; // Başlat butonunu devre dışı bırak
+            button2.Enabled = true;   // Durdur butonunu etkinleştir
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            server.Stop();
-        }
+            // server.Stop();
+            if (server != null)
+            {
+                server.Stop(); // server olarak tanımladığınız TcpServer'ı durdurun
+                server = null;
 
+            }
+            button1.Enabled = true;  // Başlat butonunu etkinleştir
+            button2.Enabled = false;
+        }
         private void mainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)

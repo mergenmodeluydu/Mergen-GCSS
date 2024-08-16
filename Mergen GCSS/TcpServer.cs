@@ -12,8 +12,7 @@ public class TcpServer
 {
     private TcpListener listener;
     private Thread listenerThread;
-    private DataGridView dataGridView;
-    private Form form;
+    private volatile bool isRunning;
     private DataGridViewHandler dataGridViewHandler;
     private ChartHandler chartHandler;
 
@@ -23,14 +22,10 @@ public class TcpServer
         this.dataGridViewHandler = dataGridViewHandler;
         this.chartHandler = chartHandler;
     }
-    private void AddDataToGridAndCharts(int[] intValues, string receivedString, string receivedString2, float[] floatValues, string additionalString, float receivedFloat, int receivedInt)
-    {
-        dataGridViewHandler.AddData(intValues, receivedString, receivedString2, floatValues, additionalString, receivedFloat, receivedInt);
-        chartHandler.UpdateCharts(floatValues, receivedFloat);
-    }
 
     public void Start()
     {
+        isRunning = true;  // Sunucuyu başlat
         listener.Start();
         listenerThread = new Thread(ListenForClients);
         listenerThread.Start();
@@ -38,11 +33,25 @@ public class TcpServer
 
     private void ListenForClients()
     {
-        while (true)
+        try
         {
-            Socket clientSocket = listener.AcceptSocket();
-            Thread clientThread = new Thread(() => HandleClient(clientSocket));
-            clientThread.Start();
+            while (isRunning)
+            {
+                if (listener.Pending())
+                {
+                    Socket clientSocket = listener.AcceptSocket();
+                    Thread clientThread = new Thread(() => HandleClient(clientSocket));
+                    clientThread.Start();
+                }
+                else
+                {
+                    Thread.Sleep(100);  // CPU kullanımını azaltmak için bekleme süresi
+                }
+            }
+        }
+        catch (SocketException)
+        {
+            // listener.Stop() çağrıldığında bu hata alınabilir
         }
     }
 
@@ -52,11 +61,12 @@ public class TcpServer
         {
             try
             {
-                while (true)
+                while (isRunning)
                 {
                     byte[] buffer = new byte[8];
                     int bytesRead = clientSocket.Receive(buffer, 0, 8, SocketFlags.None);
                     if (bytesRead == 0) break;
+
                     int[] intValues = new int[2];
                     Buffer.BlockCopy(buffer, 0, intValues, 0, 8);
 
@@ -92,9 +102,8 @@ public class TcpServer
                     buffer = new byte[4];
                     clientSocket.Receive(buffer, 0, 4, SocketFlags.None);
                     int receivedInt = BitConverter.ToInt32(buffer, 0);
-                    AddDataToGridAndCharts(intValues, receivedString, receivedString2, floatValues, additionalString, receivedFloat, receivedInt);
 
-                    // AddDataToGrid(intValues, receivedString, floatValues, additionalString, receivedFloat, receivedInt);
+                    AddDataToGridAndCharts(intValues, receivedString, receivedString2, floatValues, additionalString, receivedFloat, receivedInt);
                 }
             }
             catch (Exception e)
@@ -104,39 +113,20 @@ public class TcpServer
         }
     }
 
-    /*private void AddDataToGrid(int[] intValues, string receivedString, float[] floatValues, string additionalString, float receivedFloat, int receivedInt)
+    private void AddDataToGridAndCharts(int[] intValues, string receivedString, string receivedString2, float[] floatValues, string additionalString, float receivedFloat, int receivedInt)
     {
-        dataGridView.Invoke((MethodInvoker)delegate
-        {
-            dataGridView.Rows.Add(intValues[0], intValues[1], intValues[2], receivedString,
-           floatValues[0], floatValues[1], floatValues[2], floatValues[3], floatValues[4],
-           floatValues[5], floatValues[6], floatValues[7], floatValues[8], floatValues[9],
-           floatValues[10], floatValues[11], floatValues[12], floatValues[13],
-           additionalString, receivedFloat, receivedInt);
-            for (int i = 0; i <= 7; i++)
-            {
-                Chart chart = form.Controls.Find($"chart{i + 1}", true).FirstOrDefault() as Chart;
-                if (chart != null)
-                {
-                    chart.Series[0].Points.AddY(floatValues[i]);
-                }
-            }
-
-            // Chart9'a receivedFloat değerini ekleyin
-            Chart chart9 = form.Controls.Find("chart9", true).FirstOrDefault() as Chart;
-            if (chart9 != null)
-            {
-                chart9.Series[0].Points.AddY(receivedFloat);
-            }
-        });
-    }*/
+        dataGridViewHandler.AddData(intValues, receivedString, receivedString2, floatValues, additionalString, receivedFloat, receivedInt);
+        chartHandler.UpdateCharts(floatValues, receivedFloat);
+    }
 
     public void Stop()
     {
-        listener.Stop();
+        isRunning = false;  // Sunucuyu durdur
+        listener.Stop();    // Listener durdurulur
+
         if (listenerThread != null && listenerThread.IsAlive)
         {
-            listenerThread.Abort();
+            listenerThread.Join();  // Thread'in tamamlanmasını bekle
         }
     }
 }
