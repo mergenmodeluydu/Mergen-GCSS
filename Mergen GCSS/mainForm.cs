@@ -101,7 +101,7 @@ namespace Mergen_GCSS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            server = new TcpServer("192.168.218.210", 12345, dataGridViewHandler, chartHandler);
+            server = new TcpServer("192.168.218.26", 12345, dataGridViewHandler, chartHandler);
             server.Start();
         }
 
@@ -118,6 +118,11 @@ namespace Mergen_GCSS
                 e.Cancel = true;
                 MessageBox.Show("Alt+F4 ile uygulamayı kapatamazsınız!", "Kapatma Engellendi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
