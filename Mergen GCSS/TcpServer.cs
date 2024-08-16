@@ -23,9 +23,9 @@ public class TcpServer
         this.dataGridViewHandler = dataGridViewHandler;
         this.chartHandler = chartHandler;
     }
-    private void AddDataToGridAndCharts(int[] intValues, string receivedString, float[] floatValues, string additionalString, float receivedFloat, int receivedInt)
+    private void AddDataToGridAndCharts(int[] intValues, string receivedString, string receivedString2, float[] floatValues, string additionalString, float receivedFloat, int receivedInt)
     {
-        dataGridViewHandler.AddData(intValues, receivedString, floatValues, additionalString, receivedFloat, receivedInt);
+        dataGridViewHandler.AddData(intValues, receivedString, receivedString2, floatValues, additionalString, receivedFloat, receivedInt);
         chartHandler.UpdateCharts(floatValues, receivedFloat);
     }
 
@@ -54,11 +54,11 @@ public class TcpServer
             {
                 while (true)
                 {
-                    byte[] buffer = new byte[12];
-                    int bytesRead = clientSocket.Receive(buffer, 0, 12, SocketFlags.None);
+                    byte[] buffer = new byte[8];
+                    int bytesRead = clientSocket.Receive(buffer, 0, 8, SocketFlags.None);
                     if (bytesRead == 0) break;
-                    int[] intValues = new int[3];
-                    Buffer.BlockCopy(buffer, 0, intValues, 0, 12);
+                    int[] intValues = new int[2];
+                    Buffer.BlockCopy(buffer, 0, intValues, 0, 8);
 
                     byte[] lengthBuffer = new byte[4];
                     clientSocket.Receive(lengthBuffer, 0, 4, SocketFlags.None);
@@ -66,6 +66,13 @@ public class TcpServer
                     byte[] stringBuffer = new byte[stringLength];
                     clientSocket.Receive(stringBuffer, 0, stringLength, SocketFlags.None);
                     string receivedString = Encoding.UTF8.GetString(stringBuffer);
+
+                    byte[] lengthBuffer2 = new byte[4];
+                    clientSocket.Receive(lengthBuffer2, 0, 4, SocketFlags.None);
+                    int stringLength2 = BitConverter.ToInt32(lengthBuffer2, 0);
+                    byte[] stringBuffer2 = new byte[stringLength2];
+                    clientSocket.Receive(stringBuffer2, 0, stringLength2, SocketFlags.None);
+                    string receivedString2 = Encoding.UTF8.GetString(stringBuffer2);
 
                     buffer = new byte[14 * 4];
                     clientSocket.Receive(buffer, 0, 14 * 4, SocketFlags.None);
@@ -85,7 +92,7 @@ public class TcpServer
                     buffer = new byte[4];
                     clientSocket.Receive(buffer, 0, 4, SocketFlags.None);
                     int receivedInt = BitConverter.ToInt32(buffer, 0);
-                    AddDataToGridAndCharts(intValues, receivedString, floatValues, additionalString, receivedFloat, receivedInt);
+                    AddDataToGridAndCharts(intValues, receivedString, receivedString2, floatValues, additionalString, receivedFloat, receivedInt);
 
                     // AddDataToGrid(intValues, receivedString, floatValues, additionalString, receivedFloat, receivedInt);
                 }
