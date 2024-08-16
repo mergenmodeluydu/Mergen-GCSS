@@ -129,12 +129,14 @@
             this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.glControl1 = new OpenTK.GLControl();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -256,6 +258,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.glControl1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 17);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1171,6 +1174,17 @@
             this.pictureBox6.TabIndex = 3;
             this.pictureBox6.TabStop = false;
             // 
+            // glControl1
+            // 
+            this.glControl1.BackColor = System.Drawing.Color.Black;
+            this.glControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.glControl1.Location = new System.Drawing.Point(0, 0);
+            this.glControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.glControl1.Name = "glControl1";
+            this.glControl1.Size = new System.Drawing.Size(294, 281);
+            this.glControl1.TabIndex = 0;
+            this.glControl1.VSync = false;
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1202,6 +1216,7 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -1314,6 +1329,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.PictureBox pictureBox7;
         private GMap.NET.WindowsForms.GMapControl gMapControl1;
+        private OpenTK.GLControl glControl1;
     }
 }
 
