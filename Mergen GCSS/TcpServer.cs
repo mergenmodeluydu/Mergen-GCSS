@@ -6,7 +6,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Linq;
-
+using Mergen_GCSS;
 
 public class TcpServer
 {
@@ -16,17 +16,22 @@ public class TcpServer
     private Form form;
     private DataGridViewHandler dataGridViewHandler;
     private ChartHandler chartHandler;
+    private _3dSim simulation;
 
-    public TcpServer(string ipAddress, int port, DataGridViewHandler dataGridViewHandler, ChartHandler chartHandler)
+    public TcpServer(string ipAddress, int port, DataGridViewHandler dataGridViewHandler, ChartHandler chartHandler, _3dSim simulation)
     {
         listener = new TcpListener(IPAddress.Parse(ipAddress), port);
         this.dataGridViewHandler = dataGridViewHandler;
         this.chartHandler = chartHandler;
+        this.simulation = simulation;
     }
     private void AddDataToGridAndCharts(int[] intValues, string receivedString, float[] floatValues, string additionalString, float receivedFloat, int receivedInt)
     {
         dataGridViewHandler.AddData(intValues, receivedString, floatValues, additionalString, receivedFloat, receivedInt);
         chartHandler.UpdateCharts(floatValues, receivedFloat);
+
+        simulation.UpdateRotation(floatValues[0], floatValues[1], floatValues[2]);
+       
     }
 
     public void Start()

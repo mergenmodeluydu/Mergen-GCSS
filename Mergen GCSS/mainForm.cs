@@ -1,5 +1,6 @@
 ﻿using Accord.Video.FFMPEG;
 using GMap.NET;
+using OpenTK;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,11 +11,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using OpenTK.Graphics.OpenGL;
+
 
 namespace Mergen_GCSS
 {
     public partial class mainForm : Form
     {
+        private float x, y, z;
+        private _3dSim simulation;
         private Camera camera;
         private TcpServer server;
         private DataGridViewHandler dataGridViewHandler;
@@ -22,6 +27,7 @@ namespace Mergen_GCSS
         public mainForm()
         {
             InitializeComponent();
+            simulation = new _3dSim();
             dataGridViewHandler = new DataGridViewHandler(dataGridView1);
             chartHandler = new ChartHandler(this);
             camera = new Camera(pictureBox7);
@@ -101,7 +107,7 @@ namespace Mergen_GCSS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            server = new TcpServer("192.168.137.1", 65432, dataGridViewHandler, chartHandler);
+            server = new TcpServer("192.168.137.1", 65432, dataGridViewHandler, chartHandler,simulation);
             server.Start();
         }
 
@@ -118,6 +124,38 @@ namespace Mergen_GCSS
                 e.Cancel = true;
                 MessageBox.Show("Alt+F4 ile uygulamayı kapatamazsınız!", "Kapatma Engellendi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+        
+
+        private void glControl1_Load(object sender, EventArgs e)
+        {
+            GL.Enable(EnableCap.DepthTest);
+            GL.ClearColor(Color.Gray);
+
+        }
+
+        private void glControl1_Paint(object sender, PaintEventArgs e)
+        {
+            
+            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
+
+            Matrix4 projection = Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(45.0f), 4 / 3, 1, 1000);
+            Matrix4 view = Matrix4.LookAt(15, 0, 0, 0, 0, 0, 0, 1, 0);
+
+            GL.MatrixMode(MatrixMode.Projection);
+            GL.LoadMatrix(ref projection);
+
+            GL.MatrixMode(MatrixMode.Modelview);
+            GL.LoadMatrix(ref view);
+
+            GL.Rotate(x, 1, 0, 0);
+            GL.Rotate(y, 0, 1, 0);
+            GL.Rotate(z, 0, 0, 1);
+
+            simulation.UpdateRotation(x, y, z);
+            simulation.DrawCylinder(2.0f, 8.0f, 32);
+
+            glControl1.SwapBuffers();
         }
     }
 }
