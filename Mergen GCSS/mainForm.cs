@@ -10,18 +10,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Mergen_GCSS
 {
     public partial class mainForm : Form
     {
+
         private Camera camera;
         private TcpServer server;
+        private GondericiServer gonderici;
+
         private DataGridViewHandler dataGridViewHandler;
         private ChartHandler chartHandler;
         public mainForm()
         {
             InitializeComponent();
+            gonderici = new GondericiServer("192.168.137.169", 65432);
             button2.Enabled = false;
             dataGridViewHandler = new DataGridViewHandler(dataGridView1);
             chartHandler = new ChartHandler(this);
@@ -102,7 +107,7 @@ namespace Mergen_GCSS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            server = new TcpServer("192.168.218.26", 12345, dataGridViewHandler, chartHandler);
+            server = new TcpServer("192.168.218.114", 12345, dataGridViewHandler, chartHandler);
             server.Start();
             button1.Enabled = false; // Başlat butonunu devre dışı bırak
             button2.Enabled = true;   // Durdur butonunu etkinleştir
@@ -134,5 +139,42 @@ namespace Mergen_GCSS
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            gonderici.SendCommand("80");
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            string command = textBox1.Text;
+            if (isValidCommand(command))
+            {
+                gonderici.SendCommand(command);
+            }
+            else
+            {
+                MessageBox.Show("Hatalı komut. Lütfen geçerli bir komut girin.");
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            gonderici.SendCommand("180");
+        }
+        private bool isValidCommand(string command)
+        {
+            // Komut doğrulama mantığını buraya ekleyebilirsiniz (Python kodundaki gibi)
+            if (command.Length != 4) return false;
+            if (!char.IsDigit(command[0]) || !char.IsLetter(command[1]) ||
+                !char.IsDigit(command[2]) || !char.IsLetter(command[3])) return false;
+            if (!"RGBrgb".Contains(command[1]) || !"RGBrgb".Contains(command[3])) return false;
+            if (int.Parse(command[0].ToString()) < 1 || int.Parse(command[0].ToString()) > 9 ||
+                int.Parse(command[2].ToString()) < 1 || int.Parse(command[2].ToString()) > 9) return false;
+
+            return true;
+        }
     }
+
 }
