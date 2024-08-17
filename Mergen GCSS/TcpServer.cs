@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Linq;
 using Mergen_GCSS;
+using OpenTK;
 
 public class TcpServer
 {
@@ -118,7 +119,9 @@ public class TcpServer
     {
         dataGridViewHandler.AddData(intValues, receivedString, receivedString2, floatValues, additionalString, receivedFloat, receivedInt);
         chartHandler.UpdateCharts(floatValues, receivedFloat);
-        simulation.UpdateRotation(floatValues[12], floatValues[13], floatValues[14]);
+        simulation.UpdateRotation(floatValues[11], floatValues[12], floatValues[13]);
+
+       
     }
 
     public void Stop()

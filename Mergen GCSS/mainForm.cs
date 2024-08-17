@@ -18,7 +18,8 @@ namespace Mergen_GCSS
 {
     public partial class mainForm : Form
     {
-        private float x, y, z;
+       
+        public float x=0.0f, y=0.0f, z=0.0f;
         private _3dSim simulation;
         private Camera camera;
         private TcpServer server;
@@ -44,13 +45,14 @@ namespace Mergen_GCSS
             gMapControl1.Position = new PointLatLng(latitude, longitude);
             gMapControl1.MinZoom = 5;
             gMapControl1.MaxZoom = 100;
-            gMapControl1.Zoom = 10;   
-
+            gMapControl1.Zoom = 10;
 
             
+
         }
 
         
+
 
         private void label6_Click(object sender, EventArgs e)
         {
@@ -94,6 +96,8 @@ namespace Mergen_GCSS
             label10.ForeColor = Color.Chartreuse;
             label11.ForeColor = Color.Chartreuse;
 
+            timer1.Start();
+
         }
 
         private  void button3_Click(object sender, EventArgs e)
@@ -131,7 +135,9 @@ namespace Mergen_GCSS
         {
             GL.Enable(EnableCap.DepthTest);
             GL.ClearColor(Color.Gray);
+            
         }
+       
 
         private void glControl1_Paint(object sender, PaintEventArgs e)
         {
@@ -146,13 +152,32 @@ namespace Mergen_GCSS
             GL.MatrixMode(MatrixMode.Modelview);
             GL.LoadMatrix(ref view);
 
-            GL.Rotate(x, 1, 0, 0);
-            GL.Rotate(y, 0, 1, 0);
-            GL.Rotate(z, 0, 0, 1);
 
-           // simulation.UpdateRotation(x, y, z);
+
+
+            
+
+            GL.Rotate(x, -1, 0, 0);
+             GL.Rotate(z, 0, -1, 0);
+             GL.Rotate(y, 0, 0, 2);  
+            
             simulation.DrawCylinder(2.0f, 8.0f, 32);
+            glControl1.SwapBuffers();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            x = simulation.x;
+            y = simulation.y;
+            z = simulation.z;
+
+            simulation.UpdateRotation(x, y, z);
+            Console.WriteLine($"x: {simulation.x}, y: {simulation.y}, z: {simulation.z}");
+            glControl1.Invalidate(); // Yeniden çizim
+        }
+
+        
 
         private void mainForm_FormClosing(object sender, FormClosingEventArgs e)
         {

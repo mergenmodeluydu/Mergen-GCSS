@@ -11,14 +11,14 @@ namespace Mergen_GCSS
     public class _3dSim
     {
 
-        private float x, y, z;
+        public float x, y, z;
 
         public void UpdateRotation(float newX, float newY, float newZ)
         {
-            x = newX;
-            y = newY;
-            z = newZ;
-
+               x = newX;
+                y = newY;
+                z = newZ;
+            
             // Burada OpenGL işlemlerini güncelleyebilirsiniz
             // Örneğin, glControl'ün yeniden çizilmesini sağlayabilirsiniz
         }
