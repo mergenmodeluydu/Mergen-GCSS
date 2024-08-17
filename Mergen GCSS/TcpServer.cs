@@ -118,7 +118,7 @@ public class TcpServer
     private void AddDataToGridAndCharts(int[] intValues, string receivedString, string receivedString2, float[] floatValues, string additionalString, float receivedFloat, int receivedInt)
     {
         dataGridViewHandler.AddData(intValues, receivedString, receivedString2, floatValues, additionalString, receivedFloat, receivedInt);
-        chartHandler.UpdateCharts(floatValues, receivedFloat);
+        chartHandler.UpdateCharts(receivedString2,floatValues, receivedFloat);
         simulation.UpdateRotation(floatValues[11], floatValues[12], floatValues[13]);
 
        

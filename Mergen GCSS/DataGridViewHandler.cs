@@ -20,4 +20,5 @@ public class DataGridViewHandler
                 additionalString, receivedFloat, receivedInt);
         });
     }
+
 }
