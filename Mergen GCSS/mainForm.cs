@@ -1,5 +1,6 @@
 ﻿using Accord.Video.FFMPEG;
 using GMap.NET;
+using OpenTK;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,11 +11,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using OpenTK.Graphics.OpenGL;
+
 
 namespace Mergen_GCSS
 {
     public partial class mainForm : Form
     {
+       
+        public float x=0.0f, y=0.0f, z=0.0f;
+        private _3dSim simulation;
         private Camera camera;
         private TcpServer server;
         private DataGridViewHandler dataGridViewHandler;
@@ -22,6 +28,7 @@ namespace Mergen_GCSS
         public mainForm()
         {
             InitializeComponent();
+            simulation = new _3dSim();
             button2.Enabled = false;
             dataGridViewHandler = new DataGridViewHandler(dataGridView1);
             chartHandler = new ChartHandler(this);
@@ -38,13 +45,14 @@ namespace Mergen_GCSS
             gMapControl1.Position = new PointLatLng(latitude, longitude);
             gMapControl1.MinZoom = 5;
             gMapControl1.MaxZoom = 100;
-            gMapControl1.Zoom = 10;   
-
+            gMapControl1.Zoom = 10;
 
             
+
         }
 
         
+
 
         private void label6_Click(object sender, EventArgs e)
         {
@@ -88,6 +96,8 @@ namespace Mergen_GCSS
             label10.ForeColor = Color.Chartreuse;
             label11.ForeColor = Color.Chartreuse;
 
+            timer1.Start();
+
         }
 
         private  void button3_Click(object sender, EventArgs e)
@@ -102,7 +112,7 @@ namespace Mergen_GCSS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            server = new TcpServer("192.168.218.26", 12345, dataGridViewHandler, chartHandler);
+            server = new TcpServer("192.168.218.26", 12345, dataGridViewHandler, chartHandler,simulation);
             server.Start();
             button1.Enabled = false; // Başlat butonunu devre dışı bırak
             button2.Enabled = true;   // Durdur butonunu etkinleştir
@@ -120,6 +130,55 @@ namespace Mergen_GCSS
             button1.Enabled = true;  // Başlat butonunu etkinleştir
             button2.Enabled = false;
         }
+
+        private void glControl1_Load(object sender, EventArgs e)
+        {
+            GL.Enable(EnableCap.DepthTest);
+            GL.ClearColor(Color.Gray);
+            
+        }
+       
+
+        private void glControl1_Paint(object sender, PaintEventArgs e)
+        {
+            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
+
+            Matrix4 projection = Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(45.0f), 4 / 3, 1, 1000);
+            Matrix4 view = Matrix4.LookAt(15, 0, 0, 0, 0, 0, 0, 1, 0);
+
+            GL.MatrixMode(MatrixMode.Projection);
+            GL.LoadMatrix(ref projection);
+
+            GL.MatrixMode(MatrixMode.Modelview);
+            GL.LoadMatrix(ref view);
+
+
+
+
+            
+
+            GL.Rotate(x, -1, 0, 0);
+             GL.Rotate(z, 0, -1, 0);
+             GL.Rotate(y, 0, 0, 2);  
+            
+            simulation.DrawCylinder(2.0f, 8.0f, 32);
+            glControl1.SwapBuffers();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            x = simulation.x;
+            y = simulation.y;
+            z = simulation.z;
+
+            simulation.UpdateRotation(x, y, z);
+            Console.WriteLine($"x: {simulation.x}, y: {simulation.y}, z: {simulation.z}");
+            glControl1.Invalidate(); // Yeniden çizim
+        }
+
+        
+
         private void mainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)

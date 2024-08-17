@@ -6,7 +6,8 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Linq;
-
+using Mergen_GCSS;
+using OpenTK;
 
 public class TcpServer
 {
@@ -15,13 +16,14 @@ public class TcpServer
     private volatile bool isRunning;
     private DataGridViewHandler dataGridViewHandler;
     private ChartHandler chartHandler;
-
-    public TcpServer(string ipAddress, int port, DataGridViewHandler dataGridViewHandler, ChartHandler chartHandler)
+    private _3dSim simulation;
+    public TcpServer(string ipAddress, int port, DataGridViewHandler dataGridViewHandler, ChartHandler chartHandler, _3dSim simulation)
     {
         listener = new TcpListener(IPAddress.Parse(ipAddress), port);
         this.dataGridViewHandler = dataGridViewHandler;
         this.chartHandler = chartHandler;
-    }
+        this.simulation=simulation;
+}
 
     public void Start()
     {
@@ -117,6 +119,9 @@ public class TcpServer
     {
         dataGridViewHandler.AddData(intValues, receivedString, receivedString2, floatValues, additionalString, receivedFloat, receivedInt);
         chartHandler.UpdateCharts(floatValues, receivedFloat);
+        simulation.UpdateRotation(floatValues[11], floatValues[12], floatValues[13]);
+
+       
     }
 
     public void Stop()
