@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using OpenTK.Graphics.OpenGL;
-
+using System.IO;
 
 namespace Mergen_GCSS
 {
@@ -97,7 +97,9 @@ namespace Mergen_GCSS
             label11.ForeColor = Color.Chartreuse;
 
             timer1.Start();
-
+            timer2.Interval = 10000; // 1 dakika (60000 milisaniye)
+            timer2.Tick += timer2_Tick;
+            timer2.Start();
         }
 
         private  void button3_Click(object sender, EventArgs e)
@@ -173,11 +175,19 @@ namespace Mergen_GCSS
             z = simulation.z;
 
             simulation.UpdateRotation(x, y, z);
-            Console.WriteLine($"x: {simulation.x}, y: {simulation.y}, z: {simulation.z}");
+          
             glControl1.Invalidate(); // Yeniden çizim
         }
 
-        
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            // Kullanıcının Masaüstü klasörünü al
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            // Dosya adını ve yolu oluştur
+            string filePath = Path.Combine(desktopPath, "data.csv");
+            dataGridViewHandler.SaveDataGridViewToCSV(filePath);
+        }
 
         private void mainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -187,6 +197,12 @@ namespace Mergen_GCSS
                 e.Cancel = true;
                 MessageBox.Show("Alt+F4 ile uygulamayı kapatamazsınız!", "Kapatma Engellendi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            // Kullanıcının Masaüstü klasörünü al
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            // Dosya adını ve yolu oluştur
+            string filePath = Path.Combine(desktopPath, "data.csv");
+            dataGridViewHandler.SaveDataGridViewToCSV(filePath); // Uygulamadan çıkarken verileri kaydet
         }
 
         private void button7_Click(object sender, EventArgs e)
