@@ -11,19 +11,22 @@ using OpenTK;
 
 public class TcpServer
 {
+   
+    private mainForm formm;
     private TcpListener listener;
     private Thread listenerThread;
     private volatile bool isRunning;
     private DataGridViewHandler dataGridViewHandler;
     private ChartHandler chartHandler;
     private _3dSim simulation;
-    public TcpServer(string ipAddress, int port, DataGridViewHandler dataGridViewHandler, ChartHandler chartHandler, _3dSim simulation)
+    public TcpServer(string ipAddress, int port, DataGridViewHandler dataGridViewHandler, ChartHandler chartHandler, _3dSim simulation,mainForm formm)
     {
         listener = new TcpListener(IPAddress.Parse(ipAddress), port);
         this.dataGridViewHandler = dataGridViewHandler;
         this.chartHandler = chartHandler;
-        this.simulation=simulation;
-}
+        this.simulation = simulation;
+        this.formm = formm;
+    }
 
     public void Start()
     {
@@ -120,7 +123,7 @@ public class TcpServer
         dataGridViewHandler.AddData(intValues, receivedString, receivedString2, floatValues, additionalString, receivedFloat, receivedInt);
         chartHandler.UpdateCharts(receivedString2,floatValues, receivedFloat);
         simulation.UpdateRotation(floatValues[11], floatValues[12], floatValues[13]);
-
+        formm.Aras(receivedString);
        
     }
 

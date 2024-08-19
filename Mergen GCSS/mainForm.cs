@@ -116,7 +116,7 @@ namespace Mergen_GCSS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            server = new TcpServer("192.168.218.26", 12345, dataGridViewHandler, chartHandler,simulation);
+            server = new TcpServer("192.168.218.114", 12345, dataGridViewHandler, chartHandler,simulation,this);
             server.Start();
             button1.Enabled = false; // Başlat butonunu devre dışı bırak
             button2.Enabled = true;   // Durdur butonunu etkinleştir
@@ -244,6 +244,64 @@ namespace Mergen_GCSS
 
         private void button7_Click(object sender, EventArgs e)
         {
+
+        }
+        public void Aras(string receivedString)
+        {
+            // Eğer stringin uzunluğu 5 değilse, bir uyarı döndür
+            if (receivedString.Length != 5)
+            {
+                MessageBox.Show("String 5 karakter olmalı.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Stringi karakterlerine ayır
+            char[] characters = receivedString.ToCharArray();
+
+            // En az bir '1' olup olmadığını kontrol etmek için bir flag değişkeni tanımla
+            bool hasOne = false;
+
+            // Her karakter için kontrol ve ilgili Label/PictureBox güncellemeleri
+            for (int i = 0; i < characters.Length; i++)
+            {
+                // PictureBox isimleri 1, 2, 3, 4, 5 ile bitiyor
+                PictureBox pictureBox = Controls.Find($"pictureBox{i + 1}", true).FirstOrDefault() as PictureBox;
+
+                // Label isimleri 7, 8, 9, 10, 11 ile bitiyor
+                Label label = Controls.Find($"label{i + 7}", true).FirstOrDefault() as Label;
+
+                // Eğer Label ve PictureBox bulunursa, güncellemeleri yap
+                if (label != null && pictureBox != null)
+                {
+                    kontrolYap(characters[i], label, pictureBox);
+
+                    // Eğer karakter '1' ise, hasOne değişkenini true yap
+                    if (characters[i] == '1')
+                    {
+                        hasOne = true;
+                    }
+                }
+            }
+
+            // Eğer en az bir karakter '1' ise, Beep sesi ver
+            if (hasOne)
+            {
+                System.Media.SystemSounds.Beep.Play();
+            }
+        }
+
+        private void kontrolYap(char character, Label label, PictureBox pictureBox)
+        {
+            if (character == '1')
+            {
+                label.ForeColor = Color.Red;
+                pictureBox.BackColor = Color.Red;
+            }
+            else
+            {
+                label.ForeColor = Color.Green;
+                pictureBox.BackColor = Color.Green;
+            }
 
         }
     }
