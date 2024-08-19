@@ -20,6 +20,7 @@ namespace Mergen_GCSS
     {
        
         public float x=0.0f, y=0.0f, z=0.0f;
+        private GondericiServer gonderici;
         private _3dSim simulation;
         private Camera camera;
         private TcpServer server;
@@ -28,6 +29,7 @@ namespace Mergen_GCSS
         public mainForm()
         {
             InitializeComponent();
+            gonderici = new GondericiServer("192.168.218.163", 65432);
             simulation = new _3dSim();
             button2.Enabled = false;
             dataGridViewHandler = new DataGridViewHandler(dataGridView1);
@@ -187,6 +189,41 @@ namespace Mergen_GCSS
             // Dosya adını ve yolu oluştur
             string filePath = Path.Combine(desktopPath, "data.csv");
             dataGridViewHandler.SaveDataGridViewToCSV(filePath);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            gonderici.SendCommand("80");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            gonderici.SendCommand("180");
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            string command = textBox1.Text;
+            if (isValidCommand(command))
+            {
+                gonderici.SendCommand(command);
+            }
+            else
+            {
+                MessageBox.Show("Hatalı komut. Lütfen geçerli bir komut girin.");
+            }
+        }
+        private bool isValidCommand(string command)
+        {
+            // Komut doğrulama mantığını buraya ekleyebilirsiniz (Python kodundaki gibi)
+            if (command.Length != 4) return false;
+            if (!char.IsDigit(command[0]) || !char.IsLetter(command[1]) ||
+                !char.IsDigit(command[2]) || !char.IsLetter(command[3])) return false;
+            if (!"RGBrgb".Contains(command[1]) || !"RGBrgb".Contains(command[3])) return false;
+            if (int.Parse(command[0].ToString()) < 1 || int.Parse(command[0].ToString()) > 9 ||
+                int.Parse(command[2].ToString()) < 1 || int.Parse(command[2].ToString()) > 9) return false;
+
+            return true;
         }
 
         private void mainForm_FormClosing(object sender, FormClosingEventArgs e)
