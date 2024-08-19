@@ -114,7 +114,7 @@ namespace Mergen_GCSS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            server = new TcpServer("192.168.218.26", 12345, dataGridViewHandler, chartHandler,simulation);
+            server = new TcpServer("192.168.218.26", 12345, dataGridViewHandler, chartHandler,simulation,this);
             server.Start();
             button1.Enabled = false; // Başlat butonunu devre dışı bırak
             button2.Enabled = true;   // Durdur butonunu etkinleştir
@@ -209,5 +209,12 @@ namespace Mergen_GCSS
         {
 
         }
+        public void Aras(string receivedString)
+        {
+
+        }
+    }   
+    
     }
-}
+    
+
