@@ -32,6 +32,7 @@ namespace Mergen_GCSS
             gonderici = new GondericiServer("192.168.218.163", 65432);
             simulation = new _3dSim();
             button2.Enabled = false;
+            button4.Enabled = false;
             dataGridViewHandler = new DataGridViewHandler(dataGridView1);
             chartHandler = new ChartHandler(this);
             camera = new Camera(pictureBox7);
@@ -107,16 +108,20 @@ namespace Mergen_GCSS
         private  void button3_Click(object sender, EventArgs e)
         {
             camera.StartRecording();
+            button3.Enabled = false;
+            button4.Enabled = true;
         }
 
         private  void button4_Click(object sender, EventArgs e)
         {
             camera.StopRecording();
+            button4.Enabled = false;
+            button3.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            server = new TcpServer("192.168.218.114", 12345, dataGridViewHandler, chartHandler,simulation,this);
+            server = new TcpServer("192.168.218.26", 12345, dataGridViewHandler, chartHandler,simulation,this);
             server.Start();
             button1.Enabled = false; // Başlat butonunu devre dışı bırak
             button2.Enabled = true;   // Durdur butonunu etkinleştir
@@ -193,12 +198,12 @@ namespace Mergen_GCSS
 
         private void button6_Click(object sender, EventArgs e)
         {
-            gonderici.SendCommand("80");
+            gonderici.SendCommand("180");
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            gonderici.SendCommand("180");
+            gonderici.SendCommand("80");
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -299,8 +304,8 @@ namespace Mergen_GCSS
             }
             else
             {
-                label.ForeColor = Color.Green;
-                pictureBox.BackColor = Color.Green;
+                label.ForeColor = Color.Chartreuse;
+                pictureBox.BackColor = Color.Chartreuse;
             }
 
         }
