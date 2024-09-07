@@ -21,6 +21,11 @@ public class DataGridViewHandler
                 floatValues[5], floatValues[6], floatValues[7], floatValues[8], floatValues[9],
                 floatValues[10], floatValues[11], floatValues[12], floatValues[13],
                 additionalString, receivedFloat, receivedInt);
+            // 1. Paket numarasına göre sıralama yap
+            dataGridView.Sort(dataGridView.Columns[0], System.ComponentModel.ListSortDirection.Descending);
+
+            // 2. En üst satırı seç ve vurgula
+            dataGridView.Rows[0].Selected = false;
         });
     }
     public void SaveDataGridViewToCSV(string filePath)
