@@ -13,6 +13,8 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using OpenTK.Graphics.OpenGL;
 using System.IO;
+using System.Media;
+
 
 namespace Mergen_GCSS
 {
@@ -26,11 +28,14 @@ namespace Mergen_GCSS
         private TcpServer server;
         private DataGridViewHandler dataGridViewHandler;
         private ChartHandler chartHandler;
+        private SoundPlayer player; 
         public mainForm()
         {
             InitializeComponent();
-            gonderici = new GondericiServer("192.168.218.163", 65432);
+            gonderici = new GondericiServer("192.168.187.162", 65432);
             simulation = new _3dSim();
+            player = new SoundPlayer();
+            player.SoundLocation = @"C:\Users\HP\source\repos\Mergen-GCSS\Mergen GCSS\bmw.wav";
             button2.Enabled = false;
             button4.Enabled = false;
             dataGridViewHandler = new DataGridViewHandler(dataGridView1);
@@ -87,6 +92,7 @@ namespace Mergen_GCSS
 
         private void mainForm_Load(object sender, EventArgs e)
         {
+            
             pictureBox1.BackColor = Color.Chartreuse;
             pictureBox2.BackColor = Color.Chartreuse;
             pictureBox3.BackColor = Color.Chartreuse;
@@ -121,7 +127,7 @@ namespace Mergen_GCSS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            server = new TcpServer("192.168.218.26", 12345, dataGridViewHandler, chartHandler,simulation,this);
+            server = new TcpServer("192.168.187.26", 12345, dataGridViewHandler, chartHandler,simulation,this);
             server.Start();
             button1.Enabled = false; // Başlat butonunu devre dışı bırak
             button2.Enabled = true;   // Durdur butonunu etkinleştir
@@ -251,6 +257,22 @@ namespace Mergen_GCSS
         {
 
         }
+
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            for (int i = e.RowIndex; i < e.RowIndex + e.RowCount; i++)
+            {
+                if (i % 2 == 0) // Çift indeksli satırları mavi yap
+                {
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(38,29,58);
+                }
+                else // Tek indeksli satırları turuncu yap
+                {
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(76,58,116);
+                }
+            }
+        }
+
         public void Aras(string receivedString)
         {
             // Eğer stringin uzunluğu 5 değilse, bir uyarı döndür
@@ -291,7 +313,7 @@ namespace Mergen_GCSS
             // Eğer en az bir karakter '1' ise, Beep sesi ver
             if (hasOne)
             {
-                System.Media.SystemSounds.Beep.Play();
+                player.Play();
             }
         }
 
