@@ -28,6 +28,21 @@ namespace Mergen_GCSS
             InitializeComponent();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                // Enter tuşuna basıldığında Giriş butonunu tetikleyin
+                button1.PerformClick();
+            }
+        }
+
         private async void button1_Click(object sender, EventArgs e)
         {
             username = textBox1.Text;

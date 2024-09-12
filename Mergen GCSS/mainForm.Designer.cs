@@ -165,7 +165,8 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
@@ -179,10 +180,10 @@
             // 
             this.panel1.Controls.Add(this.gMapControl1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 17);
+            this.panel1.Location = new System.Drawing.Point(3, 20);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(403, 281);
+            this.panel1.Size = new System.Drawing.Size(403, 278);
             this.panel1.TabIndex = 0;
             // 
             // gMapControl1
@@ -208,14 +209,15 @@
             this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(403, 281);
+            this.gMapControl1.Size = new System.Drawing.Size(403, 278);
             this.gMapControl1.TabIndex = 0;
             this.gMapControl1.Zoom = 0D;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.panel2);
-            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.groupBox2.Location = new System.Drawing.Point(424, 12);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
@@ -229,10 +231,10 @@
             // 
             this.panel2.Controls.Add(this.pictureBox7);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 17);
+            this.panel2.Location = new System.Drawing.Point(3, 20);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(527, 281);
+            this.panel2.Size = new System.Drawing.Size(527, 278);
             this.panel2.TabIndex = 0;
             // 
             // pictureBox7
@@ -241,7 +243,7 @@
             this.pictureBox7.Location = new System.Drawing.Point(0, 0);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(527, 281);
+            this.pictureBox7.Size = new System.Drawing.Size(527, 278);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 0;
             this.pictureBox7.TabStop = false;
@@ -249,7 +251,8 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.panel3);
-            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.groupBox3.Location = new System.Drawing.Point(963, 12);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
@@ -263,10 +266,10 @@
             // 
             this.panel3.Controls.Add(this.glControl1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 17);
+            this.panel3.Location = new System.Drawing.Point(3, 20);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(294, 281);
+            this.panel3.Size = new System.Drawing.Size(294, 278);
             this.panel3.TabIndex = 0;
             // 
             // glControl1
@@ -276,7 +279,7 @@
             this.glControl1.Location = new System.Drawing.Point(0, 0);
             this.glControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.glControl1.Name = "glControl1";
-            this.glControl1.Size = new System.Drawing.Size(294, 281);
+            this.glControl1.Size = new System.Drawing.Size(294, 278);
             this.glControl1.TabIndex = 0;
             this.glControl1.VSync = false;
             this.glControl1.Load += new System.EventHandler(this.glControl1_Load);
@@ -300,7 +303,8 @@
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.groupBox4.Location = new System.Drawing.Point(1269, 12);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
@@ -314,7 +318,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(92, 159);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.Size = new System.Drawing.Size(100, 25);
             this.textBox1.TabIndex = 4;
             // 
             // comboBox1
@@ -323,7 +327,7 @@
             this.comboBox1.Location = new System.Drawing.Point(92, 190);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 24);
+            this.comboBox1.Size = new System.Drawing.Size(100, 25);
             this.comboBox1.TabIndex = 3;
             // 
             // button6
@@ -426,7 +430,7 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(8, 197);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 16);
+            this.label12.Size = new System.Drawing.Size(42, 17);
             this.label12.TabIndex = 0;
             this.label12.Text = "PORT:";
             // 
@@ -435,7 +439,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(8, 162);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 16);
+            this.label5.Size = new System.Drawing.Size(69, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "Mekanik F.";
             // 
@@ -444,7 +448,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(8, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 16);
+            this.label3.Size = new System.Drawing.Size(51, 17);
             this.label3.TabIndex = 0;
             this.label3.Text = "Ayrılma";
             // 
@@ -453,7 +457,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(5, 68);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 16);
+            this.label2.Size = new System.Drawing.Size(53, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "Kamera";
             // 
@@ -462,7 +466,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(5, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 16);
+            this.label1.Size = new System.Drawing.Size(37, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Wi-Fi";
             // 
@@ -496,7 +500,8 @@
             this.groupBox5.Controls.Add(this.label19);
             this.groupBox5.Controls.Add(this.label13);
             this.groupBox5.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.groupBox5.Location = new System.Drawing.Point(12, 329);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox5.Name = "groupBox5";
@@ -625,24 +630,28 @@
             this.tableLayoutPanel1.Controls.Add(this.chart1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 4, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 17);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 20);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1914, 493);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1914, 490);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // chart9
             // 
-            this.chart9.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            chartArea1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.chart9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea1.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea1.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             chartArea1.Name = "ChartArea1";
             this.chart9.ChartAreas.Add(chartArea1);
             this.chart9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chart9.Location = new System.Drawing.Point(1132, 248);
+            this.chart9.Location = new System.Drawing.Point(1132, 247);
             this.chart9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart9.Name = "chart9";
             series1.ChartArea = "ChartArea1";
@@ -650,36 +659,44 @@
             series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             series1.Name = "Series1";
             this.chart9.Series.Add(series1);
-            this.chart9.Size = new System.Drawing.Size(367, 243);
+            this.chart9.Size = new System.Drawing.Size(367, 241);
             this.chart9.TabIndex = 8;
             this.chart9.Text = "chart9";
             // 
             // chart8
             // 
-            this.chart8.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            chartArea2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.chart8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea2.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea2.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             chartArea2.Name = "ChartArea1";
             this.chart8.ChartAreas.Add(chartArea2);
             this.chart8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chart8.Location = new System.Drawing.Point(767, 248);
+            this.chart8.Location = new System.Drawing.Point(767, 247);
             this.chart8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart8.Name = "chart8";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series2.Name = "Series1";
             this.chart8.Series.Add(series2);
-            this.chart8.Size = new System.Drawing.Size(359, 243);
+            this.chart8.Size = new System.Drawing.Size(359, 241);
             this.chart8.TabIndex = 7;
             this.chart8.Text = "chart8";
             // 
             // chart7
             // 
-            this.chart7.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            chartArea3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.chart7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            chartArea3.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea3.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea3.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea3.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             chartArea3.Name = "ChartArea1";
             this.chart7.ChartAreas.Add(chartArea3);
             this.chart7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chart7.Location = new System.Drawing.Point(385, 248);
+            this.chart7.Location = new System.Drawing.Point(385, 247);
             this.chart7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart7.Name = "chart7";
             series3.ChartArea = "ChartArea1";
@@ -687,18 +704,22 @@
             series3.Color = System.Drawing.Color.Fuchsia;
             series3.Name = "Series1";
             this.chart7.Series.Add(series3);
-            this.chart7.Size = new System.Drawing.Size(376, 243);
+            this.chart7.Size = new System.Drawing.Size(376, 241);
             this.chart7.TabIndex = 6;
             this.chart7.Text = "chart7";
             // 
             // chart6
             // 
-            this.chart6.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            chartArea4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.chart6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            chartArea4.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea4.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea4.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea4.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             chartArea4.Name = "ChartArea1";
             this.chart6.ChartAreas.Add(chartArea4);
             this.chart6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chart6.Location = new System.Drawing.Point(3, 248);
+            this.chart6.Location = new System.Drawing.Point(3, 247);
             this.chart6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart6.Name = "chart6";
             series4.ChartArea = "ChartArea1";
@@ -706,14 +727,20 @@
             series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             series4.Name = "Series1";
             this.chart6.Series.Add(series4);
-            this.chart6.Size = new System.Drawing.Size(376, 243);
+            this.chart6.Size = new System.Drawing.Size(376, 241);
             this.chart6.TabIndex = 5;
             this.chart6.Text = "chart6";
             // 
             // chart5
             // 
-            this.chart5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            chartArea5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.chart5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            chartArea5.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea5.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea5.AxisX.TitleForeColor = System.Drawing.Color.White;
+            chartArea5.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea5.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            chartArea5.BorderColor = System.Drawing.Color.White;
             chartArea5.Name = "ChartArea1";
             this.chart5.ChartAreas.Add(chartArea5);
             this.chart5.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -722,17 +749,22 @@
             this.chart5.Name = "chart5";
             series5.ChartArea = "ChartArea1";
             series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            series5.Color = System.Drawing.Color.White;
+            series5.LabelForeColor = System.Drawing.Color.White;
             series5.Name = "Series1";
             this.chart5.Series.Add(series5);
-            this.chart5.Size = new System.Drawing.Size(406, 242);
+            this.chart5.Size = new System.Drawing.Size(406, 241);
             this.chart5.TabIndex = 4;
             this.chart5.Text = "chart5";
             // 
             // chart4
             // 
-            this.chart4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            chartArea6.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.chart4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            chartArea6.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea6.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea6.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea6.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             chartArea6.Name = "ChartArea1";
             this.chart4.ChartAreas.Add(chartArea6);
             this.chart4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -744,14 +776,18 @@
             series6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             series6.Name = "Series1";
             this.chart4.Series.Add(series6);
-            this.chart4.Size = new System.Drawing.Size(367, 242);
+            this.chart4.Size = new System.Drawing.Size(367, 241);
             this.chart4.TabIndex = 3;
             this.chart4.Text = "chart4";
             // 
             // chart3
             // 
-            this.chart3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            chartArea7.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.chart3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            chartArea7.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea7.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea7.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea7.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             chartArea7.Name = "ChartArea1";
             this.chart3.ChartAreas.Add(chartArea7);
             this.chart3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -763,14 +799,18 @@
             series7.Color = System.Drawing.Color.Yellow;
             series7.Name = "Series1";
             this.chart3.Series.Add(series7);
-            this.chart3.Size = new System.Drawing.Size(359, 242);
+            this.chart3.Size = new System.Drawing.Size(359, 241);
             this.chart3.TabIndex = 2;
             this.chart3.Text = "chart3";
             // 
             // chart2
             // 
-            this.chart2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            chartArea8.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.chart2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            chartArea8.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea8.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea8.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea8.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             chartArea8.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea8);
             this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -782,14 +822,18 @@
             series8.Color = System.Drawing.Color.White;
             series8.Name = "Series1";
             this.chart2.Series.Add(series8);
-            this.chart2.Size = new System.Drawing.Size(376, 242);
+            this.chart2.Size = new System.Drawing.Size(376, 241);
             this.chart2.TabIndex = 1;
             this.chart2.Text = "chart2";
             // 
             // chart1
             // 
-            this.chart1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            chartArea9.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            chartArea9.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea9.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea9.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea9.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             chartArea9.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea9);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -805,7 +849,7 @@
             series9.Name = "Series1";
             series9.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             this.chart1.Series.Add(series9);
-            this.chart1.Size = new System.Drawing.Size(376, 242);
+            this.chart1.Size = new System.Drawing.Size(376, 241);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -828,7 +872,7 @@
             this.tableLayoutPanel2.Controls.Add(this.label10, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.label11, 4, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(1505, 349);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(1505, 346);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
@@ -890,7 +934,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label7.ForeColor = System.Drawing.Color.Chartreuse;
@@ -904,7 +948,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label8.ForeColor = System.Drawing.Color.Chartreuse;
@@ -918,7 +962,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label9.ForeColor = System.Drawing.Color.Chartreuse;
@@ -932,7 +976,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label10.ForeColor = System.Drawing.Color.Chartreuse;
@@ -946,7 +990,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label11.ForeColor = System.Drawing.Color.Chartreuse;
@@ -961,7 +1005,7 @@
             // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(18)))), ((int)(((byte)(80)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
@@ -992,7 +1036,7 @@
             this.Column21});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -1001,7 +1045,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.DarkSlateBlue;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 882);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 838);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
@@ -1183,8 +1227,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1920, 1081);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.ClientSize = new System.Drawing.Size(1920, 1037);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.dataGridView1);
