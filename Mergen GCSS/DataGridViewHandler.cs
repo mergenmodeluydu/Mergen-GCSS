@@ -2,11 +2,14 @@
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using Mergen_GCSS;
 
 public class DataGridViewHandler
 {
     private DataGridView dataGridView;
-
+    
+    
+    
     public DataGridViewHandler(DataGridView dataGridView)
     {
         this.dataGridView = dataGridView;
@@ -23,7 +26,7 @@ public class DataGridViewHandler
                 additionalString, receivedFloat, receivedInt);
             // 1. Paket numarasına göre sıralama yap
             dataGridView.Sort(dataGridView.Columns[0], System.ComponentModel.ListSortDirection.Descending);
-
+            
             // 2. En üst satırı seç ve vurgula
             dataGridView.Rows[0].Selected = false;
         });

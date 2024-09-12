@@ -28,7 +28,9 @@ namespace Mergen_GCSS
         private TcpServer server;
         private DataGridViewHandler dataGridViewHandler;
         private ChartHandler chartHandler;
-        private SoundPlayer player; 
+        private SoundPlayer player;
+
+        private Server _server;
         public mainForm()
         {
             InitializeComponent();
@@ -127,8 +129,18 @@ namespace Mergen_GCSS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            server = new TcpServer("192.168.187.26", 12345, dataGridViewHandler, chartHandler,simulation,this);
-            server.Start();
+            // Portları belirleyin
+            int[] ports = { 5000, 5001, 5002 };
+
+            // Server instance oluşturun
+            _server = new Server(ports);
+
+            // Port 5001 için float değerini ayarlayın
+            _server.Port5001FloatValue = 2.718f;
+
+            // Server'ı başlatın
+            Task.Run(() => _server.Start());
+
             button1.Enabled = false; // Başlat butonunu devre dışı bırak
             button2.Enabled = true;   // Durdur butonunu etkinleştir
         }
