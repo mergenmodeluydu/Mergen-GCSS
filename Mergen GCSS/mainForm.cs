@@ -14,7 +14,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using OpenTK.Graphics.OpenGL;
 using System.IO;
 using System.Media;
-
+using LiveCharts.Wpf.Charts.Base;
 
 namespace Mergen_GCSS
 {
@@ -25,7 +25,8 @@ namespace Mergen_GCSS
         private GondericiServer gonderici;
         private _3dSim simulation;
         private Camera camera;
-        private TcpServer server;
+        
+        private Server _server;
         private DataGridViewHandler dataGridViewHandler;
         private ChartHandler chartHandler;
         private SoundPlayer player; 
@@ -127,8 +128,18 @@ namespace Mergen_GCSS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            server = new TcpServer("192.168.187.26", 12345, dataGridViewHandler, chartHandler,simulation,this);
-            server.Start();
+            int[] ports = { 5000, 5001, 5002 };
+
+            // Server instance oluşturun
+            _server = new Server(ports,dataGridViewHandler,chartHandler,simulation,this);
+
+            // Port 5001 için float değerini ayarlayın
+            _server.Port5001FloatValue = 2.718f;
+
+            // Server'ı başlatın
+            Task.Run(() => _server.Start());
+
+            MessageBox.Show("Server başlatıldı.");
             button1.Enabled = false; // Başlat butonunu devre dışı bırak
             button2.Enabled = true;   // Durdur butonunu etkinleştir
         }
@@ -136,12 +147,12 @@ namespace Mergen_GCSS
         private void button2_Click(object sender, EventArgs e)
         {
             // server.Stop();
-            if (server != null)
+          /*  if (server != null)
             {
                 server.Stop(); // server olarak tanımladığınız TcpServer'ı durdurun
                 server = null;
 
-            }
+            } */
             button1.Enabled = true;  // Başlat butonunu etkinleştir
             button2.Enabled = false;
         }
@@ -217,7 +228,14 @@ namespace Mergen_GCSS
             string command = textBox1.Text;
             if (isValidCommand(command))
             {
-                gonderici.SendCommand(command);
+                if (_server == null)
+                {
+                    MessageBox.Show("Server başlatılmamış. Lütfen önce server'ı başlatın.");
+                    return;
+                }
+
+                string message = textBox1.Text;
+                _server.SendMessageToPort5002(message);
             }
             else
             {
