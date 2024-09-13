@@ -146,7 +146,6 @@
     <Compile Include="Camera.cs" />
     <Compile Include="ChartHandler.cs" />
     <Compile Include="DataGridViewHandler.cs" />
-    <Compile Include="GondericiServer.cs" />
     <Compile Include="loginForm.cs">
       <SubType>Form</SubType>
     </Compile>

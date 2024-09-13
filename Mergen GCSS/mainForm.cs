@@ -22,7 +22,7 @@ namespace Mergen_GCSS
     {
        
         public float x=0.0f, y=0.0f, z=0.0f;
-        private GondericiServer gonderici;
+       
         private _3dSim simulation;
         private Camera camera;
         
@@ -33,7 +33,7 @@ namespace Mergen_GCSS
         public mainForm()
         {
             InitializeComponent();
-            gonderici = new GondericiServer("192.168.187.162", 65432);
+           
             simulation = new _3dSim();
             player = new SoundPlayer();
             player.SoundLocation = @"C:\Users\HP\source\repos\Mergen-GCSS\Mergen GCSS\bmw.wav";
@@ -215,12 +215,12 @@ namespace Mergen_GCSS
 
         private void button6_Click(object sender, EventArgs e)
         {
-            gonderici.SendCommand("180");
+            
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            gonderici.SendCommand("80");
+            
         }
 
         private void button8_Click(object sender, EventArgs e)

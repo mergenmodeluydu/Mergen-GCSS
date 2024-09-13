@@ -98,6 +98,7 @@ namespace Mergen_GCSS
                     }
 
                     Task.Run(() => HandleClient(client, port));
+                    Task.Run(() => HandleClient2(client, port));
                 }
                 catch (Exception ex)
                 {
@@ -117,18 +118,36 @@ namespace Mergen_GCSS
                     if (port == 5000)
                     {
                         HandlePort5000(stream);
-                    }
-                    else if (port == 5001)
-                    {
-                        HandlePort5001(stream);
-                    }
-                    else if (port == 5002)
-                    {
-                        HandlePort5002(stream);
+                        
                     }
                     else
                     {
                         HandleOtherPorts(stream, port);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Port {port} üzerinde hata: {ex.Message}");
+                    break; // Hata durumunda döngüden çık ve bağlantıyı kapat
+                }
+            }
+
+            client.Close();
+            Console.WriteLine($"Port {port} üzerindeki bağlantı kapatıldı.");
+        }
+
+        private void HandleClient2(TcpClient client, int port)
+        {
+            NetworkStream stream = client.GetStream();
+
+            while (true)
+            {
+                try
+                {
+                    if (port == 5000)
+                    {
+                        HandlePort5001(stream);
+
                     }
 
                     Thread.Sleep(1000); // 1 saniye bekle
