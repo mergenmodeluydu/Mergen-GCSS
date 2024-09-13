@@ -13,11 +13,11 @@ namespace Mergen_GCSS
 
         public float x, y, z;
 
-        public void UpdateRotation(float newX, float newY, float newZ)
+        public void UpdateRotation(float LastFloat12, float LastFloat13, float LastFloat14)
         {
-               x = newX;
-                y = newY;
-                z = newZ;
+               x = LastFloat12;
+                y = LastFloat13;
+                z = LastFloat14;
             
             // Burada OpenGL işlemlerini güncelleyebilirsiniz
             // Örneğin, glControl'ün yeniden çizilmesini sağlayabilirsiniz

@@ -22,19 +22,18 @@ namespace Mergen_GCSS
     {
        
         public float x=0.0f, y=0.0f, z=0.0f;
-        private GondericiServer gonderici;
-        private _3dSim simulation;
+       
+       
         private Camera camera;
-        private TcpServer server;
         private DataGridViewHandler dataGridViewHandler;
         private ChartHandler chartHandler;
         private SoundPlayer player;
-
+        _3dSim simulation;
         private Server _server;
         public mainForm()
         {
             InitializeComponent();
-            gonderici = new GondericiServer("192.168.187.162", 65432);
+           
             simulation = new _3dSim();
             player = new SoundPlayer();
             player.SoundLocation = @"C:\Users\HP\source\repos\Mergen-GCSS\Mergen GCSS\bmw.wav";
@@ -43,6 +42,7 @@ namespace Mergen_GCSS
             dataGridViewHandler = new DataGridViewHandler(dataGridView1);
             chartHandler = new ChartHandler(this);
             camera = new Camera(pictureBox7);
+            
             gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMaps.Instance.Mode = AccessMode.ServerOnly;
             gMapControl1.SetPositionByKeywords("Istanbul, Turkey");
@@ -133,7 +133,7 @@ namespace Mergen_GCSS
             int[] ports = { 5000, 5001, 5002 };
 
             // Server instance oluşturun
-            _server = new Server(ports);
+            _server = new Server(ports, dataGridViewHandler,chartHandler,this,simulation);
 
             // Port 5001 için float değerini ayarlayın
             _server.Port5001FloatValue = 2.718f;
@@ -147,7 +147,7 @@ namespace Mergen_GCSS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // server.Stop();
+          /*  // server.Stop();
             if (server != null)
             {
                 server.Stop(); // server olarak tanımladığınız TcpServer'ı durdurun
@@ -155,7 +155,7 @@ namespace Mergen_GCSS
 
             }
             button1.Enabled = true;  // Başlat butonunu etkinleştir
-            button2.Enabled = false;
+            button2.Enabled = false;   */
         }
 
         private void glControl1_Load(object sender, EventArgs e)
@@ -216,12 +216,12 @@ namespace Mergen_GCSS
 
         private void button6_Click(object sender, EventArgs e)
         {
-            gonderici.SendCommand("180");
+            //gonderici.SendCommand("180");
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            gonderici.SendCommand("80");
+          //  gonderici.SendCommand("80");
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -229,7 +229,7 @@ namespace Mergen_GCSS
             string command = textBox1.Text;
             if (isValidCommand(command))
             {
-                gonderici.SendCommand(command);
+               // gonderici.SendCommand(command);
             }
             else
             {
@@ -285,17 +285,17 @@ namespace Mergen_GCSS
             }
         }
 
-        public void Aras(string receivedString)
+        public void Aras(string LastString1)
         {
             // Eğer stringin uzunluğu 5 değilse, bir uyarı döndür
-            if (receivedString.Length != 5)
+            if (LastString1.Length != 5)
             {
                 MessageBox.Show("String 5 karakter olmalı.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             // Stringi karakterlerine ayır
-            char[] characters = receivedString.ToCharArray();
+            char[] characters = LastString1.ToCharArray();
 
             // En az bir '1' olup olmadığını kontrol etmek için bir flag değişkeni tanımla
             bool hasOne = false;
@@ -329,7 +329,7 @@ namespace Mergen_GCSS
             }
         }
 
-        private void kontrolYap(char character, Label label, PictureBox pictureBox)
+        public void kontrolYap(char character, Label label, PictureBox pictureBox)
         {
             if (character == '1')
             {
