@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using OpenTK.Graphics.OpenGL;
 using System.IO;
+using System.IO.Ports;
 using System.Media;
 using LiveCharts.Wpf.Charts.Base;
 
@@ -22,7 +23,7 @@ namespace Mergen_GCSS
     {
        
         public float x=0.0f, y=0.0f, z=0.0f;
-       
+        private string data;
         private _3dSim simulation;
         private Camera camera;
         
@@ -110,6 +111,12 @@ namespace Mergen_GCSS
             timer2.Interval = 10000; // 1 dakika (60000 milisaniye)
             timer2.Tick += timer2_Tick;
             timer2.Start();
+
+            string[] portlar = SerialPort.GetPortNames();
+            foreach (string portAdi in portlar)
+            {
+                comboBox1.Items.Add(portAdi);
+            }
         }
 
         private  void button3_Click(object sender, EventArgs e)
@@ -290,6 +297,39 @@ namespace Mergen_GCSS
                 }
             }
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            try { 
+            serialPort1.PortName = comboBox1.Text;
+            serialPort1.BaudRate = 9600;
+            if (!serialPort1.IsOpen)
+            {
+                
+                serialPort1.Open();
+                //MessageBox.Show("BAĞLANTI KURULDU");
+                button9.Enabled = false;
+                button7.Enabled = true;
+
+            }
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("BAĞLANTI KURULAMADI");
+                button7.Enabled = true;
+                //BtnBasla.Enabled = false;
+            }
+        }
+
+        private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+             data = serialPort1.ReadLine();
+            Console.WriteLine(data);
+            
+        }
+
+        
 
         public void Aras(string receivedString)
         {
