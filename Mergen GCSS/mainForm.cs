@@ -17,6 +17,7 @@ using System.IO.Ports;
 using System.Media;
 using LiveCharts.Wpf.Charts.Base;
 using System.Linq.Expressions;
+using System.Net.Sockets;
 
 namespace Mergen_GCSS
 {
@@ -148,7 +149,8 @@ namespace Mergen_GCSS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (_server != null) {
+            if (_server != null) 
+            {
                 _server.Stop();
                 _server=null;
             }
@@ -215,26 +217,47 @@ namespace Mergen_GCSS
 
         private void button6_Click(object sender, EventArgs e)
         {
-            
+            if (_server == null)
+            {
+                MessageBox.Show("Server başlatılmamış. Lütfen önce server'ı başlatın.");
+                return;
+            }
+            else
+            {
+                _server.ayril_kilit = "ayril";
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            
+            if (_server == null)
+            {
+                MessageBox.Show("Server başlatılmamış. Lütfen önce server'ı başlatın.");
+                return;
+            }
+            else
+            {
+                _server.ayril_kilit = "kilit";
+            }
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            string command = textBox1.Text;
-            if (isValidCommand(command))
+            string text = textBox1.Text.Trim();
+            if (isValidCommand(text))
             {
                 if (_server == null)
                 {
                     MessageBox.Show("Server başlatılmamış. Lütfen önce server'ı başlatın.");
                     return;
                 }
+                else
+                {
+                    string textRHRH = textBox1.Text.Trim();
+                    _server.rhrh= textRHRH;
+                }
 
-                string message = textBox1.Text;
+                
                 
             }
             else

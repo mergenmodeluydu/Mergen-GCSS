@@ -24,6 +24,8 @@ namespace Mergen_GCSS
         private _3dSim simulation;
         public TcpClient client;
         public string data;
+        public string rhrh;
+        public string ayril_kilit;
 
         public Server(string ip, int port,DataGridViewHandler dataGridViewHandler,ChartHandler chartHandler,_3dSim simulation,mainForm formm)
         {
@@ -101,7 +103,9 @@ namespace Mergen_GCSS
                     Console.WriteLine($"Alınan veriler: {param1}, {param2}, {param3}, {param4}, {param5}, {param6}, {param7}, {param8}, {param9}, {param10}, {param11}, {param12}, {param13}, {param14}, {param15}, {param16}, {param17}, {param18}, {param19}, {param20}, {param21}");
 
                     // Her gelen veri sonrası client'a float veriyi string olarak gönderelim
-                    SendStringToClient(client,data);
+                    SendStringToClient(client,data+","+rhrh+","+ayril_kilit);
+                    rhrh = "";
+                    ayril_kilit = "";
                 }
             }
             catch (Exception e)
