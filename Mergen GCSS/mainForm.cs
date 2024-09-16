@@ -16,6 +16,7 @@ using System.IO;
 using System.IO.Ports;
 using System.Media;
 using LiveCharts.Wpf.Charts.Base;
+using System.Linq.Expressions;
 
 namespace Mergen_GCSS
 {
@@ -23,7 +24,6 @@ namespace Mergen_GCSS
     {
        
         public float x=0.0f, y=0.0f, z=0.0f;
-        private string data;
         private _3dSim simulation;
         private Camera camera;
         
@@ -37,7 +37,7 @@ namespace Mergen_GCSS
            
             simulation = new _3dSim();
             player = new SoundPlayer();
-            player.SoundLocation = @"C:\Users\HP\source\repos\Mergen-GCSS\Mergen GCSS\bmw.wav";
+            player.SoundLocation = @"C:\Users\Fatih\source\repos\mergenmodeluydu\Mergen-GCSS\Mergen GCSS\bmw.wav";
             button2.Enabled = false;
             button4.Enabled = false;
             dataGridViewHandler = new DataGridViewHandler(dataGridView1);
@@ -46,9 +46,10 @@ namespace Mergen_GCSS
             gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMaps.Instance.Mode = AccessMode.ServerOnly;
             gMapControl1.SetPositionByKeywords("Istanbul, Turkey");
+            
 
             // Koordinatlarla manuel olarak pozisyon ayarlama
-           double latitude = 38.707901; // Enlem (Latitude)
+            double latitude = 38.707901; // Enlem (Latitude)
             double longitude = 35.519833; // Boylam (Longitude)
 
             // Haritayı bu koordinatlara göre merkezleme
@@ -133,33 +134,25 @@ namespace Mergen_GCSS
             button3.Enabled = true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            int[] ports = { 5000, 5001, 5002 };
-
-            // Server instance oluşturun
-            _server = new Server(ports,dataGridViewHandler,chartHandler,simulation,this);
-
-            // Port 5001 için float değerini ayarlayın
-            _server.Port5001FloatValue = 2.718f;
-
-            // Server'ı başlatın
-            Task.Run(() => _server.Start());
-
-            MessageBox.Show("Server başlatıldı.");
             button1.Enabled = false; // Başlat butonunu devre dışı bırak
             button2.Enabled = true;   // Durdur butonunu etkinleştir
+            await Task.Run(() =>
+            {
+                _server = new Server("192.168.187.210", 8080, dataGridViewHandler, chartHandler, simulation, this);
+                _server.Start();
+            });
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // server.Stop();
-          /*  if (server != null)
-            {
-                server.Stop(); // server olarak tanımladığınız TcpServer'ı durdurun
-                server = null;
-
-            } */
+            if (_server != null) {
+                _server.Stop();
+                _server=null;
+            }
+            
             button1.Enabled = true;  // Başlat butonunu etkinleştir
             button2.Enabled = false;
         }
@@ -242,7 +235,7 @@ namespace Mergen_GCSS
                 }
 
                 string message = textBox1.Text;
-                _server.SendMessageToPort5002(message);
+                
             }
             else
             {
@@ -324,12 +317,11 @@ namespace Mergen_GCSS
 
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-             data = serialPort1.ReadLine();
-            Console.WriteLine(data);
-            
+            _server.data = serialPort1.ReadLine();
+            Console.WriteLine(_server.data);
         }
 
-        
+
 
         public void Aras(string receivedString)
         {
