@@ -14,7 +14,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using OpenTK.Graphics.OpenGL;
 using System.IO;
 using System.Media;
-
+using System.IO.Ports;
 
 namespace Mergen_GCSS
 {
@@ -28,11 +28,13 @@ namespace Mergen_GCSS
         private TcpServer server;
         private DataGridViewHandler dataGridViewHandler;
         private ChartHandler chartHandler;
-        private SoundPlayer player; 
+        private SoundPlayer player;
+        private string data;
+
         public mainForm()
         {
             InitializeComponent();
-            gonderici = new GondericiServer("192.168.187.162", 65432);
+            gonderici = new GondericiServer("192.168.187.131", 65432);
             simulation = new _3dSim();
             player = new SoundPlayer();
             player.SoundLocation = @"C:\Users\HP\source\repos\Mergen-GCSS\Mergen GCSS\bmw.wav";
@@ -46,15 +48,15 @@ namespace Mergen_GCSS
             gMapControl1.SetPositionByKeywords("Istanbul, Turkey");
 
             // Koordinatlarla manuel olarak pozisyon ayarlama
-           double latitude = 38.707901; // Enlem (Latitude)
-            double longitude = 35.519833; // Boylam (Longitude)
+          // double latitude = 38.707901; // Enlem (Latitude)
+          //  double longitude = 35.519833; // Boylam (Longitude)
 
             // Haritayı bu koordinatlara göre merkezleme
-            gMapControl1.Position = new PointLatLng(latitude, longitude);
+           // gMapControl1.Position = new PointLatLng(latitude, longitude);
             gMapControl1.MinZoom = 5;
             gMapControl1.MaxZoom = 100;
             gMapControl1.Zoom = 10;
-
+            
             
 
         }
@@ -109,6 +111,13 @@ namespace Mergen_GCSS
             timer2.Interval = 10000; // 1 dakika (60000 milisaniye)
             timer2.Tick += timer2_Tick;
             timer2.Start();
+
+            string[] portlar = SerialPort.GetPortNames();
+            foreach (string  portAdi in portlar)
+            {
+                comboBox1.Items.Add(portAdi);
+
+            }
         }
 
         private  void button3_Click(object sender, EventArgs e)
@@ -129,6 +138,7 @@ namespace Mergen_GCSS
         {
             server = new TcpServer("192.168.187.26", 12345, dataGridViewHandler, chartHandler,simulation,this);
             server.Start();
+
             button1.Enabled = false; // Başlat butonunu devre dışı bırak
             button2.Enabled = true;   // Durdur butonunu etkinleştir
         }
@@ -272,6 +282,38 @@ namespace Mergen_GCSS
                 }
             }
         }
+
+        private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+            data = serialPort1.ReadLine();
+           
+            Console.WriteLine(data);
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                serialPort1.PortName = comboBox1.Text;
+                serialPort1.BaudRate = 9600;
+                if (!serialPort1.IsOpen)
+                {
+                    serialPort1.Open();
+                    button9.Enabled = false;
+
+                }
+            }
+
+            catch (Exception)
+            {
+
+            }
+        }
+
+
+       
+
+        
 
         public void Aras(string receivedString)
         {
