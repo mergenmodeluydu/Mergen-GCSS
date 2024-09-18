@@ -140,7 +140,7 @@ namespace Mergen_GCSS
             button2.Enabled = true;   // Durdur butonunu etkinleştir
             await Task.Run(() =>
             {
-                _server = new Server("192.168.137.207", 8080, dataGridViewHandler, chartHandler, simulation, this);
+                _server = new Server("192.168.187.210", 7000, dataGridViewHandler, chartHandler, simulation, this);
                 _server.Start();
             });
 
@@ -322,7 +322,6 @@ namespace Mergen_GCSS
                 serialPort1.Open();
                 //MessageBox.Show("BAĞLANTI KURULDU");
                 button9.Enabled = false;
-                button7.Enabled = true;
 
             }
             }
@@ -330,7 +329,6 @@ namespace Mergen_GCSS
             catch (Exception)
             {
                 MessageBox.Show("BAĞLANTI KURULAMADI");
-                button7.Enabled = true;
                 //BtnBasla.Enabled = false;
             }
         }
@@ -342,8 +340,6 @@ namespace Mergen_GCSS
             _server.SendStringToClient(_server.client, "f" + iot);
 
         }
-
-
 
         public void Aras(string receivedString)
         {

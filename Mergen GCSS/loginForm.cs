@@ -18,7 +18,7 @@ namespace Mergen_GCSS
     {
         { "kgnybr", "elektronikbirimbaskani123" },
         { "salih", "123" },
-        { "ikram", "password2" },
+        { "ikram", "1903" },
          { "yeo", "password3" },
          { "mek", "generalmahmut" },
          { "cio", "cio" }
