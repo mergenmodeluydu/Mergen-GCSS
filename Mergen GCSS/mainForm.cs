@@ -140,7 +140,7 @@ namespace Mergen_GCSS
             button2.Enabled = true;   // Durdur butonunu etkinleştir
             await Task.Run(() =>
             {
-                _server = new Server("192.168.187.210", 8080, dataGridViewHandler, chartHandler, simulation, this);
+                _server = new Server("192.168.137.207", 8080, dataGridViewHandler, chartHandler, simulation, this);
                 _server.Start();
             });
 
@@ -215,12 +215,28 @@ namespace Mergen_GCSS
 
         private void button6_Click(object sender, EventArgs e)
         {
-            
+            if (_server == null)
+            {
+                MessageBox.Show("Server başlatılmamış. Lütfen önce server'ı başlatın.");
+                return;
+            }
+            else
+            {
+                _server.SendStringToClient(_server.client, "s" + "ayril");
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            
+            if (_server == null)
+            {
+                MessageBox.Show("Server başlatılmamış. Lütfen önce server'ı başlatın.");
+                return;
+            }
+            else
+            {
+                _server.SendStringToClient(_server.client, "s" + "kilit");
+            }
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -233,8 +249,12 @@ namespace Mergen_GCSS
                     MessageBox.Show("Server başlatılmamış. Lütfen önce server'ı başlatın.");
                     return;
                 }
+                else
+                {
+                    _server.SendStringToClient(_server.client, "c" + command);
+                }
 
-                string message = textBox1.Text;
+                
                 
             }
             else
@@ -317,8 +337,10 @@ namespace Mergen_GCSS
 
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            _server.data = serialPort1.ReadLine();
-            Console.WriteLine(_server.data);
+            string iot = serialPort1.ReadLine();
+            Console.WriteLine(iot);
+            _server.SendStringToClient(_server.client, "f" + iot);
+
         }
 
 
