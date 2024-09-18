@@ -28,11 +28,12 @@ namespace Mergen_GCSS
         private TcpServer server;
         private DataGridViewHandler dataGridViewHandler;
         private ChartHandler chartHandler;
-        private SoundPlayer player; 
+        private SoundPlayer player;
+        public float lat=0.0f, lng=0.0f;
         public mainForm()
         {
             InitializeComponent();
-            gonderici = new GondericiServer("192.168.187.162", 65432);
+            gonderici = new GondericiServer("192.168.187.69", 65432);
             simulation = new _3dSim();
             player = new SoundPlayer();
             player.SoundLocation = @"C:\Users\HP\source\repos\Mergen-GCSS\Mergen GCSS\bmw.wav";
@@ -42,24 +43,43 @@ namespace Mergen_GCSS
             chartHandler = new ChartHandler(this);
             camera = new Camera(pictureBox7);
             gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
-            GMaps.Instance.Mode = AccessMode.ServerOnly;
-            gMapControl1.SetPositionByKeywords("Istanbul, Turkey");
+            GMaps.Instance.Mode = AccessMode.ServerAndCache;
+           // gMapControl1.SetPositionByKeywords("Istanbul, Turkey");
 
             // Koordinatlarla manuel olarak pozisyon ayarlama
-           double latitude = 38.707901; // Enlem (Latitude)
-            double longitude = 35.519833; // Boylam (Longitude)
+           //double latitude = 38.707901; // Enlem (Latitude)
+          //  double longitude = 35.519833; // Boylam (Longitude)
 
             // Haritayı bu koordinatlara göre merkezleme
-            gMapControl1.Position = new PointLatLng(latitude, longitude);
+           // gMapControl1.Position = new PointLatLng(latitude, longitude);
             gMapControl1.MinZoom = 5;
-            gMapControl1.MaxZoom = 100;
-            gMapControl1.Zoom = 10;
-
+            gMapControl1.MaxZoom = 20;
+            gMapControl1.Zoom = 16;
+            
             
 
         }
 
-        
+        public void Map(float latt, float lngg)
+        {
+            this.lat = latt;
+            this.lng = lngg;
+
+            // UI iş parçacığında mı olduğunuzu kontrol edin
+            if (gMapControl1.InvokeRequired)
+            {
+                // Eğer değilsek, Invoke kullanarak işlemi UI iş parçacığında yap
+                gMapControl1.Invoke(new MethodInvoker(delegate
+                {
+                    gMapControl1.Position = new PointLatLng(lat, lng);
+                }));
+            }
+            else
+            {
+                // UI iş parçacığındaysanız doğrudan işlem yapabilirsiniz
+                gMapControl1.Position = new PointLatLng(lat, lng);
+            }
+        }
 
 
         private void label6_Click(object sender, EventArgs e)

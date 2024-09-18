@@ -124,7 +124,8 @@ public class TcpServer
         chartHandler.UpdateCharts(receivedString2,floatValues, receivedFloat);
         simulation.UpdateRotation(floatValues[11], floatValues[12], floatValues[13]);
         formm.Aras(receivedString);
-       
+        formm.Map(floatValues[8], floatValues[9]);   //floatValues[8], floatValues[9]
+        
     }
 
     public void Stop()
