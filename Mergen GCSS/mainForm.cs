@@ -68,7 +68,7 @@ namespace Mergen_GCSS
 
 
         }
-        public void UpdateMap(float latt, float lngg)
+      /*  public void UpdateMap(float latt, float lngg)
         {
             if (this.InvokeRequired)
             {
@@ -78,7 +78,7 @@ namespace Mergen_GCSS
             {
                 Map(latt, lngg);
             }
-        }
+        }   */
 
 
 
