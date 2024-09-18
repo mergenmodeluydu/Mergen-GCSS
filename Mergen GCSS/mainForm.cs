@@ -44,25 +44,43 @@ namespace Mergen_GCSS
             chartHandler = new ChartHandler(this);
             camera = new Camera(pictureBox7);
             gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
-            GMaps.Instance.Mode = AccessMode.ServerOnly;
-            gMapControl1.SetPositionByKeywords("Istanbul, Turkey");
-            
+            GMaps.Instance.Mode = AccessMode.ServerAndCache;
 
-            // Koordinatlarla manuel olarak pozisyon ayarlama
-            double latitude = 38.707901; // Enlem (Latitude)
-            double longitude = 35.519833; // Boylam (Longitude)
 
-            // Haritayı bu koordinatlara göre merkezleme
-            gMapControl1.Position = new PointLatLng(latitude, longitude);
+
+
             gMapControl1.MinZoom = 5;
-            gMapControl1.MaxZoom = 100;
+            gMapControl1.MaxZoom = 20;
             gMapControl1.Zoom = 10;
 
-            
+
+           
+
 
         }
 
-        
+        public void Map(float latt,float lngg)
+        {
+
+            
+            gMapControl1.Position = new PointLatLng(latt, lngg);
+
+
+
+        }
+        public void UpdateMap(float latt, float lngg)
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new Action(() => Map(latt, lngg)));
+            }
+            else
+            {
+                Map(latt, lngg);
+            }
+        }
+
+
 
 
         private void label6_Click(object sender, EventArgs e)
@@ -322,7 +340,7 @@ namespace Mergen_GCSS
                 serialPort1.Open();
                 //MessageBox.Show("BAĞLANTI KURULDU");
                 button9.Enabled = false;
-                button7.Enabled = true;
+                //button7.Enabled = true;
 
             }
             }
@@ -330,7 +348,7 @@ namespace Mergen_GCSS
             catch (Exception)
             {
                 MessageBox.Show("BAĞLANTI KURULAMADI");
-                button7.Enabled = true;
+              //  button7.Enabled = true;
                 //BtnBasla.Enabled = false;
             }
         }
