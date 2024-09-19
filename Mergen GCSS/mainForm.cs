@@ -39,7 +39,7 @@ namespace Mergen_GCSS
            
             simulation = new _3dSim();
             player = new SoundPlayer();
-            player.SoundLocation = @"C:\Users\Fatih\source\repos\mergenmodeluydu\Mergen-GCSS\Mergen GCSS\bmw.wav";
+            player.SoundLocation = @"C:\Users\HP\source\repos\Mergen-GCSS\Mergen GCSS\bmw.wav";
             button2.Enabled = false;
             button4.Enabled = false;
             dataGridViewHandler = new DataGridViewHandler(dataGridView1);
@@ -157,7 +157,7 @@ namespace Mergen_GCSS
             button2.Enabled = true;   // Durdur butonunu etkinleştir
             await Task.Run(() =>
             {
-                _server = new Server("192.168.187.210", 7000, dataGridViewHandler, chartHandler, simulation, this);
+                _server = new Server("192.168.0.101", 7000, dataGridViewHandler, chartHandler, simulation, this);
                 _server.Start();
             });
 
@@ -304,7 +304,7 @@ namespace Mergen_GCSS
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
             // Dosya adını ve yolu oluştur
-            string filePath = Path.Combine(desktopPath, "data.csv");
+            string filePath = Path.Combine(desktopPath, "TMUY2024_270942_TLM.csv");
             dataGridViewHandler.SaveDataGridViewToCSV(filePath); // Uygulamadan çıkarken verileri kaydet
         }
 

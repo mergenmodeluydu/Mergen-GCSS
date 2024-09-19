@@ -41,7 +41,8 @@ namespace Mergen_GCSS
             chartHandler.UpdateCharts(param4, param5, param6, param7, param8, param9, param10, param11, param12, param20);
             simulation.UpdateRotation(param16, param17, param18);
             formm.Aras(param3);
-            formm.Map(param12,param13);
+            formm.Map(param13,param14);
+            
         }
         // Server'ı başlatan metod
         public void Start()
