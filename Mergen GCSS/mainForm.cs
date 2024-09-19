@@ -17,6 +17,7 @@ using System.IO.Ports;
 using System.Media;
 using LiveCharts.Wpf.Charts.Base;
 using System.Linq.Expressions;
+using System.Net.Sockets;
 
 namespace Mergen_GCSS
 {
@@ -31,6 +32,7 @@ namespace Mergen_GCSS
         private DataGridViewHandler dataGridViewHandler;
         private ChartHandler chartHandler;
         private SoundPlayer player; 
+        public float lat=0.0f, lng=0.0f;    
         public mainForm()
         {
             InitializeComponent();
@@ -44,25 +46,40 @@ namespace Mergen_GCSS
             chartHandler = new ChartHandler(this);
             camera = new Camera(pictureBox7);
             gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
-            GMaps.Instance.Mode = AccessMode.ServerOnly;
-            gMapControl1.SetPositionByKeywords("Istanbul, Turkey");
+            GMaps.Instance.Mode = AccessMode.ServerAndCache;
+           
             
 
-            // Koordinatlarla manuel olarak pozisyon ayarlama
-            double latitude = 38.707901; // Enlem (Latitude)
-            double longitude = 35.519833; // Boylam (Longitude)
-
-            // Haritayı bu koordinatlara göre merkezleme
-            gMapControl1.Position = new PointLatLng(latitude, longitude);
+           
             gMapControl1.MinZoom = 5;
-            gMapControl1.MaxZoom = 100;
-            gMapControl1.Zoom = 10;
+            gMapControl1.MaxZoom = 25;
+            gMapControl1.Zoom = 16;
 
             
 
         }
 
-        
+        public void Map(float latt, float lngg)
+        {
+            this.lat = latt;
+            this.lng = lngg;
+
+            // UI iş parçacığında mı olduğunuzu kontrol edin
+            if (gMapControl1.InvokeRequired)
+            {
+                // Eğer değilsek, Invoke kullanarak işlemi UI iş parçacığında yap
+                gMapControl1.Invoke(new MethodInvoker(delegate
+                {
+                    gMapControl1.Position = new PointLatLng(lat, lng);
+                }));
+            }
+            else
+            {
+                // UI iş parçacığındaysanız doğrudan işlem yapabilirsiniz
+                gMapControl1.Position = new PointLatLng(lat, lng);
+            }
+        }
+
 
 
         private void label6_Click(object sender, EventArgs e)
@@ -109,7 +126,7 @@ namespace Mergen_GCSS
             label11.ForeColor = Color.Chartreuse;
 
             timer1.Start();
-            timer2.Interval = 10000; // 1 dakika (60000 milisaniye)
+            timer2.Interval = 1000; // 1 dakika (60000 milisaniye)
             timer2.Tick += timer2_Tick;
             timer2.Start();
 
@@ -209,7 +226,7 @@ namespace Mergen_GCSS
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
             // Dosya adını ve yolu oluştur
-            string filePath = Path.Combine(desktopPath, "data.csv");
+            string filePath = Path.Combine(desktopPath, "TMUY2024_270942_TLM.csv");
             dataGridViewHandler.SaveDataGridViewToCSV(filePath);
         }
 
@@ -313,17 +330,18 @@ namespace Mergen_GCSS
 
         private void button9_Click(object sender, EventArgs e)
         {
-            try { 
-            serialPort1.PortName = comboBox1.Text;
-            serialPort1.BaudRate = 9600;
-            if (!serialPort1.IsOpen)
+            try
             {
-                
-                serialPort1.Open();
-                //MessageBox.Show("BAĞLANTI KURULDU");
-                button9.Enabled = false;
+                serialPort1.PortName = comboBox1.Text;
+                serialPort1.BaudRate = 9600;
+                if (!serialPort1.IsOpen)
+                {
 
-            }
+                    serialPort1.Open();
+                    //MessageBox.Show("BAĞLANTI KURULDU");
+                    button9.Enabled = false;
+
+                }
             }
 
             catch (Exception)
@@ -331,13 +349,22 @@ namespace Mergen_GCSS
                 MessageBox.Show("BAĞLANTI KURULAMADI");
                 //BtnBasla.Enabled = false;
             }
+            
+
         }
 
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            string iot = serialPort1.ReadLine();
-            Console.WriteLine(iot);
-            _server.SendStringToClient(_server.client, "f" + iot);
+            try
+            {
+                string iot = serialPort1.ReadLine();
+                Console.WriteLine(iot);
+                _server.SendStringToClient(_server.client, "f" + iot);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Baglanti hatasi: {ex}");
+            }
 
         }
 

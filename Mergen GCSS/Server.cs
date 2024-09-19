@@ -35,12 +35,13 @@ namespace Mergen_GCSS
         }
 
 
-        private void AddData(int param1, int param2,string param3,string param4, float param5, float para6, float param7, float param8, float param9, float param10, float param11, float param12, float param13, float param14, float param15, float param16, float param17, float param18,string param19,float param20,int param21)
+        private void AddData(int param1, int param2,string param3,string param4, float param5, float param6, float param7, float param8, float param9, float param10, float param11, float param12, float param13, float param14, float param15, float param16, float param17, float param18,string param19,float param20,int param21)
         {
-            datagridVievHandler.AddData(param1, param2, param3, param4, param5, para6, param7, param8, param9, param10, param11, param12, param13, param14, param15, param16, param17, param18, param19, param20, param21);
-            chartHandler.UpdateCharts(param4, param5, para6, param7, param8, param9, param10, param11, param12, param20);
+            datagridVievHandler.AddData(param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12, param13, param14, param15, param16, param17, param18, param19, param20, param21);
+            chartHandler.UpdateCharts(param4, param5, param6, param7, param8, param9, param10, param11, param12, param20);
             simulation.UpdateRotation(param16, param17, param18);
             formm.Aras(param3);
+            formm.Map(param12,param13);
         }
         // Server'ı başlatan metod
         public void Start()

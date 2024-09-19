@@ -24,11 +24,11 @@ namespace Mergen_GCSS
         {
             this.pictureBox = pictureBox;
             baseDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            VideoStream = new MJPEGStream("http://192.168.137.23:8000/stream.mjpg");
+            VideoStream = new MJPEGStream("http://192.168.187.69:8000/stream.mjpg");
             VideoStream.NewFrame += VideoStream_NewFrame;
 
             string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
-            outputPath = Path.Combine(baseDirectory, "output_" + timestamp + ".mp4");
+            outputPath = Path.Combine(baseDirectory, "TMUY2024_270942_VIDEO_" + timestamp + ".mp4");
 
             writer = new VideoFileWriter();
         }

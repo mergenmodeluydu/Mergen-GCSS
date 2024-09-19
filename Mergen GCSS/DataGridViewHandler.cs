@@ -49,6 +49,6 @@ public class DataGridViewHandler
         }
 
         // CSV dosyasına yaz
-        File.WriteAllText(filePath, csvContent.ToString(), Encoding.UTF8);
+        File.AppendAllText(filePath, csvContent.ToString(), Encoding.UTF8);
     }
 }
