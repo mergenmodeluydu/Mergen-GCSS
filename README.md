@@ -1,60 +1,60 @@
 # Mergen-GCSS
 
-Model uydu için yer istasyonu yazılımı (Ground Control Station Software). Uydudaki Raspberry Pi ile Wi-Fi üzerinden haberleşir: uydudan gelen telemetriyi TCP ile alır; grafiklerde, tabloda, haritada ve 3B modelde gösterir. Uyduya komut gönderir, uydunun kamera yayınını izler ve kaydeder.
+Ground Control Station Software for a model satellite. It communicates over Wi-Fi with the Raspberry Pi on board the satellite: it receives telemetry over TCP and displays it in charts, a data table, a map and a 3D model. It also sends commands to the satellite and shows and records the satellite's camera stream.
 
-C# ve Windows Forms (.NET Framework 4.7.2) ile yazılmıştır.
+Written in C# with Windows Forms (.NET Framework 4.7.2). The user interface is in Turkish.
 
-![Ana pencere](docs/arayuz.png)
-*Ana pencere. Görüntüdeki değerler örnek veridir.*
+![Main window](docs/arayuz.png)
+*Main window. Values shown are sample data.*
 
-## Özellikler
+## Features
 
-- **Giriş ve açılış ekranı:** kullanıcı adı ve şifreyle giriş, ardından açılış ekranı.
-- **Telemetri alma (TCP sunucusu):**
-  - Wi-Fi bölümündeki *Başlat* düğmesiyle sunucu açılır; uydu bağlanınca paketler sürekli okunur.
-  - Her paket ikili (binary) biçimde gelir: paket numarası ve uydu statüsü, hata kodu, gönderme saati, 14 ölçüm değeri, RHRH, IoT verisi ve takım numarası.
-- **Grafikler:** basınç 1–2, yükseklik 1–2, irtifa farkı, iniş hızı, sıcaklık, pil gerilimi ve IoT verisi için 9 zaman grafiği.
-- **Tablo ve kayıt:** her paket tabloya eklenir (en yeni üstte). Tablo her 10 saniyede masaüstündeki `data.csv` dosyasına kaydedilir.
-- **Harita:** GMap.NET ile uydunun GPS konumu haritada gösterilir.
-- **3B simülasyon:** OpenTK ile uydu modeli gelen pitch / roll / yaw açılarıyla döner.
-- **ARAS (arıza tespit) göstergesi:** hata kodunun 5 biti; hatalı bit kırmızı yanar ve sesli uyarı verilir.
-- **Komutlar (uyduya TCP ile):**
-  - **Ayrılma:** *Kilitle* ve *Ayır* düğmeleri ayrılma mekanizmasının servo açısını gönderir.
-  - **Mekanik filtreleme:** girilen komut doğrulanıp gönderilir.
-- **Kamera:** uydudaki kameranın MJPEG yayını izlenir ve masaüstüne MP4 olarak kaydedilir.
+- **Login and splash screens:** username and password login, followed by a splash screen.
+- **Telemetry reception (TCP server):**
+  - The server starts with the *Başlat* (Start) button in the Wi-Fi section; packets are read continuously once the satellite connects.
+  - Each packet arrives in binary form: packet number and satellite status, error code, transmission time, 14 measurements, RHRH, IoT data and team number.
+- **Charts:** 9 time charts for pressure 1–2, altitude 1–2, altitude difference, descent rate, temperature, battery voltage and IoT data.
+- **Data table and logging:** every packet is added to the table (newest on top). The table is saved to `data.csv` on the desktop every 10 seconds.
+- **Map:** the satellite's GPS position is shown with GMap.NET.
+- **3D simulation:** the satellite model rotates with the received pitch / roll / yaw angles (OpenTK).
+- **ARAS (fault detection) indicator:** five error-code bits; a faulty bit turns red with an audible alert.
+- **Commands (to the satellite over TCP):**
+  - **Separation:** the *Kilitle* (Lock) and *Ayır* (Release) buttons send the servo angle of the separation mechanism.
+  - **Mechanical filtering:** the entered command is validated and sent.
+- **Camera:** the MJPEG stream from the satellite's camera is displayed and recorded to the desktop as MP4.
 
-## Dosyalar
+## Files
 
-| Dosya | İçerik |
+| File | Contents |
 |---|---|
-| `mainForm.cs` | Ana pencere, kontrol düğmeleri, harita, ARAS |
-| `TcpServer.cs` | Telemetri sunucusu, paket okuma |
-| `GondericiServer.cs` | Uyduya komut gönderme |
-| `DataGridViewHandler.cs` | Tablo ve CSV kaydı |
-| `ChartHandler.cs` | Grafikler |
-| `_3dSim.cs` | 3B uydu modeli |
-| `Camera.cs` | MJPEG kamera yayını ve kaydı |
-| `loginForm.cs`, `splash.cs` | Giriş ve açılış ekranları |
+| `mainForm.cs` | Main window, control buttons, map, ARAS |
+| `TcpServer.cs` | Telemetry server, packet reading |
+| `GondericiServer.cs` | Sending commands to the satellite |
+| `DataGridViewHandler.cs` | Data table and CSV logging |
+| `ChartHandler.cs` | Charts |
+| `_3dSim.cs` | 3D satellite model |
+| `Camera.cs` | MJPEG camera stream and recording |
+| `loginForm.cs`, `splash.cs` | Login and splash screens |
 
-## Kurulum ve çalıştırma
+## Build and run
 
-**Gerekenler:**
+**Requirements:**
 - Windows 10 / 11
-- Visual Studio 2019 ya da 2022, ".NET masaüstü geliştirme" iş yüküyle (.NET Framework 4.7.2 dahil)
-- Harita için internet bağlantısı
+- Visual Studio 2019 or 2022 with the ".NET desktop development" workload (including .NET Framework 4.7.2)
+- Internet connection for the map
 
-**Adımlar:**
-1. Depoyu indirin:
+**Steps:**
+1. Clone the repository:
    ```
    git clone https://github.com/mergenmodeluydu/Mergen-GCSS.git
    ```
-2. `Mergen GCSS.sln` dosyasını Visual Studio ile açın.
-3. NuGet paketlerini geri yükleyin: Solution'a sağ tık → *Restore NuGet Packages*.
-4. Derleyip çalıştırın (F5) ve giriş yapın.
-5. Uydu ile yer istasyonu aynı ağdayken Wi-Fi bölümünde *Başlat*'a basın.
+2. Open `Mergen GCSS.sln` in Visual Studio.
+3. Restore NuGet packages: right-click the solution → *Restore NuGet Packages*.
+4. Build and run (F5), then log in.
+5. With the satellite and the ground station on the same network, press *Başlat* (Start) in the Wi-Fi section.
 
-Sunucu, komut ve kamera IP adresleri `mainForm.cs` ve `Camera.cs` içinde tanımlıdır; kendi ağınıza göre değiştirin.
+The server, command and camera IP addresses are defined in `mainForm.cs` and `Camera.cs`; change them to match your network.
 
-## Kullanılan kütüphaneler
+## Libraries
 
-GMap.NET (harita), OpenTK (3B), AForge / Accord (kamera ve kayıt), System.Windows.Forms.DataVisualization (grafikler), MetroFramework ve Guna.UI2 (arayüz).
+GMap.NET (map), OpenTK (3D), AForge / Accord (camera and recording), System.Windows.Forms.DataVisualization (charts), MetroFramework and Guna.UI2 (interface).
